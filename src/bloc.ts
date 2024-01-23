@@ -16,4 +16,7 @@ export class Bloc {
   public get meansOfIdentification() {
     return this.customer.meansOfIdentification.bind(this.customer)
   }
+  public get revalidateCustomerKYC() {
+    return this.customer.revalidateCustomerKYC.bind(this.customer)
+  }
 }
