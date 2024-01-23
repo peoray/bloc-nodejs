@@ -144,4 +144,9 @@ export interface IUpgradeCustomerToKYCT1 {
   image: string
 }
 
-export interface IUpgradeCustomerToKYCT1 extends ICustomer {}
+export interface IUpgradeCustomerToKYCT2 {
+  means_of_id: string
+  image: string
+}
+
+export interface IUpgradeCustomerToKYCTierResponse extends ICustomer {}
