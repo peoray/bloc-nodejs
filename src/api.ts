@@ -4,7 +4,7 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
 } from 'axios'
-import { BaseError, handleAxiosError } from './utils/errors'
+import { handleErrors } from './utils/errors'
 
 /**
  * A class representing the core functionality for making HTTP requests using Axios.
@@ -46,8 +46,8 @@ export class HTTPCore {
       const response = await requestPromise
       return response.data
     } catch (error) {
-      // Throw a BaseError in case of an AxiosError.
-      throw new BaseError({ message: handleAxiosError(error as AxiosError) })
+      // Throw an Error in case of an AxiosError.
+      throw handleErrors(error as AxiosError)
     }
   }
 

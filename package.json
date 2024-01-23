@@ -40,7 +40,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "lint": "tsdx lint",
-    "dev": "npx tsx ./examples/customer/get-customers.ts",
+    "dev": "npx tsx ./examples/customer/create-customer.ts",
     "prepare": "tsdx build",
     "prepublishOnly": "pnpm build",
     "preversion": "pnpm build"
