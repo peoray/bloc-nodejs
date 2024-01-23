@@ -13,4 +13,7 @@ export class Bloc {
   public get getCustomers() {
     return this.customer.getCustomers.bind(this.customer)
   }
+  public get meansOfIdentification() {
+    return this.customer.meansOfIdentification.bind(this.customer)
+  }
 }
