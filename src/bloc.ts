@@ -31,4 +31,7 @@ export class Bloc {
   public get upgradeCustomerToKYCT2() {
     return this.customer.upgradeCustomerToKYCT2.bind(this.customer)
   }
+  public get upgradeCustomerToKYCT3() {
+    return this.customer.upgradeCustomerToKYCT3.bind(this.customer)
+  }
 }
