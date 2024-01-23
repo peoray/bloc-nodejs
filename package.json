@@ -2,16 +2,49 @@
   "name": "bloc-nodejs",
   "version": "0.1.0",
   "description": "Nodejs SDK wrapper for Bloc API written with Typescript support",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/anchor.esm.js",
+  "files": [
+    "dist/**/*"
+  ],
   "engines": {
     "node": ">=16"
   },
-  "keywords": [],
   "author": "Emmanuel Raymond",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peoray/bloc-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peoray/bloc-nodejs/issues"
+  },
+  "homepage": "https://github.com/peoray/bloc-nodejs#readme",
+  "keywords": [
+    "bloc",
+    "fintech",
+    "accounts",
+    "transactions",
+    "payment",
+    "cards",
+    "credit",
+    "savings",
+    "investment",
+    "sdk",
+    "typescript",
+    "nodejs",
+    "javascript"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint",
+    "dev": "npx tsx ./examples/customer/create-customer.ts",
+    "prepare": "tsdx build",
+    "prepublishOnly": "pnpm build",
+    "preversion": "pnpm build"
+  },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "tsdx": "^0.14.1",
