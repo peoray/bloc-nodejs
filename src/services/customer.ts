@@ -4,6 +4,7 @@ import {
   ICreateCustomerResponse,
   ICustomerResponse,
   IGetCustomerByIdResponse,
+  IMeansOfIdentification,
   IUpdateCustomer,
   IUpdateCustomerResponse,
 } from '../types'
@@ -17,16 +18,20 @@ export class Customer extends HTTPCore {
     return this.get<ICustomerResponse>(`/customers`)
   }
 
-  public async createCustomer(
-    data: ICreateCustomer
-  ): Promise<ICreateCustomerResponse> {
-    return this.post<ICreateCustomerResponse>(`/customers`, data)
+  public async meansOfIdentification(): Promise<IMeansOfIdentification> {
+    return this.get<IMeansOfIdentification>(`/customers`)
   }
 
   public async getCustomerById(
     customerID: string
   ): Promise<IGetCustomerByIdResponse> {
     return this.get<IGetCustomerByIdResponse>(`/customers/${customerID}`)
+  }
+
+  public async createCustomer(
+    data: ICreateCustomer
+  ): Promise<ICreateCustomerResponse> {
+    return this.post<ICreateCustomerResponse>(`/customers`, data)
   }
 
   public async updateCustomer(

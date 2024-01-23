@@ -120,3 +120,12 @@ export interface IUpdateCustomer {
 }
 
 export interface IUpdateCustomerResponse extends ICustomer {}
+
+export interface IMeansOfIdentification {
+  success: boolean
+  data: {
+    name: string
+    format: string
+  }[]
+  message: string
+}
