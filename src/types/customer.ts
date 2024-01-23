@@ -149,4 +149,8 @@ export interface IUpgradeCustomerToKYCT2 {
   image: string
 }
 
+export interface IUpgradeCustomerToKYCT3 {
+  image: string
+}
+
 export interface IUpgradeCustomerToKYCTierResponse extends ICustomer {}

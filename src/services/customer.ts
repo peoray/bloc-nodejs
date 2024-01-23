@@ -10,6 +10,7 @@ import {
   IUpdateCustomerResponse,
   IUpgradeCustomerToKYCT1,
   IUpgradeCustomerToKYCT2,
+  IUpgradeCustomerToKYCT3,
   IUpgradeCustomerToKYCTierResponse,
 } from '../types'
 
@@ -56,8 +57,8 @@ export class Customer extends HTTPCore {
   public async upgradeCustomerToKYCT1(
     customerID: string,
     data: IUpgradeCustomerToKYCT1
-  ): Promise<IUpgradeCustomerToKYCT1Response> {
-    return this.put<IUpgradeCustomerToKYCT1Response>(
+  ): Promise<IUpgradeCustomerToKYCTierResponse> {
+    return this.put<IUpgradeCustomerToKYCTierResponse>(
       `/customers/upgrade/t1/${customerID}`,
       data
     )
@@ -69,6 +70,16 @@ export class Customer extends HTTPCore {
   ): Promise<IUpgradeCustomerToKYCTierResponse> {
     return this.put<IUpgradeCustomerToKYCTierResponse>(
       `/customers/upgrade/t2/${customerID}`,
+      data
+    )
+  }
+
+  public async upgradeCustomerToKYCT3(
+    customerID: string,
+    data: IUpgradeCustomerToKYCT3
+  ): Promise<IUpgradeCustomerToKYCTierResponse> {
+    return this.put<IUpgradeCustomerToKYCTierResponse>(
+      `/customers/upgrade/t3/${customerID}`,
       data
     )
   }
