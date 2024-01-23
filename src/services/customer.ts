@@ -2,8 +2,8 @@ import { HTTPCore } from '../api'
 import {
   ICreateCustomer,
   ICreateCustomerResponse,
-  ICustomerResponse,
   IGetCustomerByIdResponse,
+  IGetCustomerResponse,
   IMeansOfIdentification,
   IRevalidateCustomerKYCResponse,
   IUpdateCustomer,
@@ -31,8 +31,8 @@ export class Customer extends HTTPCore {
    * Retrieves a list of customers.
    * @returns {Promise<ICustomerResponse>} A promise that resolves to the customer response.
    */
-  public async getCustomers(): Promise<ICustomerResponse> {
-    return this.get<ICustomerResponse>(`/customers`)
+  public async getCustomers(): Promise<IGetCustomerResponse> {
+    return this.get<IGetCustomerResponse>(`/customers`)
   }
 
   /**
