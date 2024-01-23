@@ -3,6 +3,7 @@ import {
   ICreateCustomer,
   ICreateCustomerResponse,
   ICustomerResponse,
+  IGetCustomerByIdResponse,
 } from '../types'
 
 export class Customer extends HTTPCore {
@@ -18,5 +19,11 @@ export class Customer extends HTTPCore {
     data: ICreateCustomer
   ): Promise<ICreateCustomerResponse> {
     return this.post<ICreateCustomerResponse>('/customers', data)
+  }
+
+  public async getCustomerById(
+    customerID: string
+  ): Promise<IGetCustomerByIdResponse> {
+    return this.get<IGetCustomerByIdResponse>(`/customers/${customerID}`)
   }
 }

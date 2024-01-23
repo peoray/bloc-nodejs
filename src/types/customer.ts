@@ -78,3 +78,37 @@ export interface ICustomerResponse {
     has_previous: boolean
   }
 }
+
+interface CustomerDetails {
+  id: string
+  full_name: string
+  phone_number: string
+  organization_id: string
+  environment: string
+  email: string
+  country: string
+  group: string
+  status: string
+  created_at: string
+  updated_at: string
+  first_name: string
+  last_name: string
+  kyc_tier: string
+  bvn: string
+  date_of_birth: string
+  customer_type: string
+  source: string
+  address: {
+    street: string
+    city: string
+    state: string
+    country: string
+    postal_code: string
+  }
+}
+
+export interface IGetCustomerByIdResponse {
+  success: boolean
+  data: CustomerDetails
+  message: string
+}
