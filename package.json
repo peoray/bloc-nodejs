@@ -1,0 +1,24 @@
+{
+  "name": "bloc-nodejs",
+  "version": "0.1.0",
+  "description": "Nodejs SDK wrapper for Bloc API written with Typescript support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [],
+  "author": "Emmanuel Raymond",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.5"
+  }
+}
