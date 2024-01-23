@@ -1,3 +1,11 @@
+interface IAddress {
+  street: string
+  city: string
+  state: string
+  country: string
+  postal_code: string
+}
+
 export interface ICreateCustomer {
   email: string
   phone_number: string
@@ -35,7 +43,7 @@ export interface ICreateCustomerResponse {
   message: string
 }
 
-interface Customer {
+interface ICustomer {
   id: string
   full_name: string
   phone_number: string
@@ -61,17 +69,12 @@ interface Customer {
   means_of_identity_url: string
   customer_type: string
   source: string
-  address: {
-    street: string
-    city: string
-    state: string
-    postal_code: string
-  }
+  address: IAddress
 }
 
 export interface ICustomerResponse {
   success: boolean
-  data: Customer[] | null
+  data: ICustomer[] | null
   message: string
   metadata: {
     has_next: boolean
@@ -98,13 +101,7 @@ interface CustomerDetails {
   date_of_birth: string
   customer_type: string
   source: string
-  address: {
-    street: string
-    city: string
-    state: string
-    country: string
-    postal_code: string
-  }
+  address: IAddress
 }
 
 export interface IGetCustomerByIdResponse {
@@ -112,3 +109,14 @@ export interface IGetCustomerByIdResponse {
   data: CustomerDetails
   message: string
 }
+
+export interface IUpdateCustomer {
+  email: string
+  phone_number: string
+  first_name: string
+  last_name: string
+  customer_type: string
+  address: IAddress
+}
+
+export interface IUpdateCustomerResponse extends ICustomer {}
