@@ -22,4 +22,7 @@ export class Bloc {
   public get getCustomerById() {
     return this.customer.getCustomerById.bind(this.customer)
   }
+  public get updateCustomer() {
+    return this.customer.updateCustomer.bind(this.customer)
+  }
 }
