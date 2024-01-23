@@ -5,6 +5,7 @@ import {
   ICustomerResponse,
   IGetCustomerByIdResponse,
   IMeansOfIdentification,
+  IRevalidateCustomerKYCResponse,
   IUpdateCustomer,
   IUpdateCustomerResponse,
 } from '../types'
@@ -19,7 +20,15 @@ export class Customer extends HTTPCore {
   }
 
   public async meansOfIdentification(): Promise<IMeansOfIdentification> {
-    return this.get<IMeansOfIdentification>(`/customers`)
+    return this.get<IMeansOfIdentification>(`/customers/means/identity`)
+  }
+
+  public async revalidateCustomerKYC(
+    customerID: string
+  ): Promise<IRevalidateCustomerKYCResponse> {
+    return this.get<IRevalidateCustomerKYCResponse>(
+      `/customers/kyc/revalidate/${customerID}`
+    )
   }
 
   public async getCustomerById(

@@ -129,3 +129,7 @@ export interface IMeansOfIdentification {
   }[]
   message: string
 }
+
+export interface IRevalidateCustomerKYCResponse {
+  success: boolean
+  message: string
