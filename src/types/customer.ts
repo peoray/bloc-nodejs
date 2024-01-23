@@ -133,3 +133,15 @@ export interface IMeansOfIdentification {
 export interface IRevalidateCustomerKYCResponse {
   success: boolean
   message: string
+}
+
+export interface IUpgradeCustomerToKYCT1 {
+  place_of_birth: string
+  dob: string
+  gender: string
+  country: string
+  address: IAddress
+  image: string
+}
+
+export interface IUpgradeCustomerToKYCT1 extends ICustomer {}

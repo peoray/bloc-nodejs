@@ -8,6 +8,8 @@ import {
   IRevalidateCustomerKYCResponse,
   IUpdateCustomer,
   IUpdateCustomerResponse,
+  IUpgradeCustomerToKYCT1,
+  IUpgradeCustomerToKYCT1Response,
 } from '../types'
 
 export class Customer extends HTTPCore {
@@ -48,5 +50,15 @@ export class Customer extends HTTPCore {
     data: IUpdateCustomer
   ): Promise<IUpdateCustomerResponse> {
     return this.put<IUpdateCustomerResponse>(`/customers/${customerID}`, data)
+  }
+
+  public async upgradeCustomerToKYCT1(
+    customerID: string,
+    data: IUpgradeCustomerToKYCT1
+  ): Promise<IUpgradeCustomerToKYCT1Response> {
+    return this.put<IUpgradeCustomerToKYCT1Response>(
+      `/customers/upgrade/k1/${customerID}`,
+      data
+    )
   }
 }
