@@ -4,7 +4,7 @@ export interface ICreateBeneficiary {
   bankCode: string
 }
 
-export interface ICreateBeneficiaryResponse {
+export interface IBeneficiaryResponse {
   success: boolean
   data: {
     id: string
@@ -16,3 +16,7 @@ export interface ICreateBeneficiaryResponse {
   }
   message: string
 }
+
+// export interface IGetBeneficiaryByIdResponse {
+
+// }
