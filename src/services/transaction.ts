@@ -6,7 +6,7 @@ import { ITransactionResponse } from '../types'
 /**
  * Class representing Customer operations that extends HTTPCore.
  */
-export class Beneficiary extends HTTPCore {
+export class Transaction extends HTTPCore {
   /**
    * Creates an instance of the Beneficiary class.
    * @param {string} secretKey - The secret key for authentication.

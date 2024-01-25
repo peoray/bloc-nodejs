@@ -1,12 +1,14 @@
-import { Customer, Beneficiary } from './services'
+import { Customer, Beneficiary, Transaction } from './services'
 
 export class Bloc {
   private customer: Customer
   private beneficiary: Beneficiary
+  private transaction: Transaction
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
     this.beneficiary = new Beneficiary(secretKey, publicKey)
+    this.transaction = new Transaction(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -47,5 +49,11 @@ export class Bloc {
   }
   public get deleteBeneficiary() {
     return this.beneficiary.deleteBeneficiary.bind(this.beneficiary)
+  }
+  public get getAllTransactions() {
+    return this.transaction.getAllTransactions.bind(this.transaction)
+  }
+  public get getTransactionByReference() {
+    return this.transaction.getTransactionByReference.bind(this.transaction)
   }
 }
