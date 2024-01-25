@@ -17,6 +17,6 @@ export interface IBeneficiaryResponse {
   message: string
 }
 
-// export interface IGetBeneficiaryByIdResponse {
-
-// }
+export interface IUpdateBeneficiary {
+  bankCode: string
+}

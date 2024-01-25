@@ -1,6 +1,10 @@
 import { HTTPCore } from '../api'
 import {} from '../types'
-import { ICreateBeneficiary, IBeneficiaryResponse } from '../types/beneficiary'
+import {
+  ICreateBeneficiary,
+  IBeneficiaryResponse,
+  IUpdateBeneficiary,
+} from '../types/beneficiary'
 
 /**
  * Class representing Customer operations that extends HTTPCore.
@@ -24,5 +28,15 @@ export class Beneficiary extends HTTPCore {
     beneficiaryID: string
   ): Promise<IBeneficiaryResponse> {
     return this.get<IBeneficiaryResponse>(`/beneficiaries/${beneficiaryID}`)
+  }
+
+  public async updateBeneficiary(
+    beneficiaryID: string,
+    data: IUpdateBeneficiary
+  ): Promise<IBeneficiaryResponse> {
+    return this.put<IBeneficiaryResponse>(
+      `/beneficiaries/${beneficiaryID}`,
+      data
+    )
   }
 }
