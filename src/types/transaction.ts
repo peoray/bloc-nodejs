@@ -48,3 +48,9 @@ export interface ITransactionResponse {
     has_previous: boolean
   }
 }
+
+export interface ITransactionByReferenceResponse {
+  success: boolean
+  data: ITransaction
+  message: string
+}

@@ -1,5 +1,5 @@
 import { HTTPCore } from '../api'
-import {} from '../types'
+import { ITransactionByReferenceResponse } from '../types'
 import { IQueryParams } from '../types/base'
 import { ITransactionResponse } from '../types'
 
@@ -20,5 +20,17 @@ export class Beneficiary extends HTTPCore {
     params: IQueryParams
   ): Promise<ITransactionResponse> {
     return this.get<ITransactionResponse>(`/transactions`, { params })
+  }
+
+  public async getTransactionByReference(
+    reference: string,
+    params: IQueryParams
+  ): Promise<ITransactionByReferenceResponse> {
+    return this.get<ITransactionByReferenceResponse>(
+      `/transactions/reference/${reference}`,
+      {
+        params,
+      }
+    )
   }
 }
