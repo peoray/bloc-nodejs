@@ -39,4 +39,8 @@ export class Beneficiary extends HTTPCore {
       data
     )
   }
+
+  public async deleteBeneficiary(beneficiaryID: string): Promise<any> {
+    return this.delete<any>(`/beneficiaries/${beneficiaryID}`)
+  }
 }
