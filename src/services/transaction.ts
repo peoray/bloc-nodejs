@@ -17,20 +17,16 @@ export class Transaction extends HTTPCore {
   }
 
   public async getAllTransactions(
-    params: IQueryParams
+    params?: IQueryParams
   ): Promise<ITransactionResponse> {
     return this.get<ITransactionResponse>(`/transactions`, { params })
   }
 
   public async getTransactionByReference(
-    reference: string,
-    params: IQueryParams
+    reference: string
   ): Promise<ITransactionByReferenceResponse> {
     return this.get<ITransactionByReferenceResponse>(
-      `/transactions/reference/${reference}`,
-      {
-        params,
-      }
+      `/transactions/reference/${reference}`
     )
   }
 }
