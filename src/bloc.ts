@@ -1,10 +1,12 @@
-import { Customer } from './services'
+import { Customer, Beneficiary } from './services'
 
 export class Bloc {
   private customer: Customer
+  private beneficiary: Beneficiary
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
+    this.beneficiary = new Beneficiary(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -33,5 +35,17 @@ export class Bloc {
   }
   public get upgradeCustomerToKYCT3() {
     return this.customer.upgradeCustomerToKYCT3.bind(this.customer)
+  }
+  public get createBeneficiary() {
+    return this.beneficiary.createBeneficiary.bind(this.beneficiary)
+  }
+  public get getBeneficiaryById() {
+    return this.beneficiary.getBeneficiaryById.bind(this.beneficiary)
+  }
+  public get updateBeneficiary() {
+    return this.beneficiary.updateBeneficiary.bind(this.beneficiary)
+  }
+  public get deleteBeneficiary() {
+    return this.beneficiary.deleteBeneficiary.bind(this.beneficiary)
   }
 }
