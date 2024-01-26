@@ -17,4 +17,8 @@ export class Webhhok extends HTTPCore {
   public async setWebhook(data: ISetWebhook): Promise<IWebhookResponse> {
     return this.post<IWebhookResponse>(`/webhooks`, data)
   }
+
+  public async getWebhook(): Promise<IWebhookResponse> {
+    return this.get<IWebhookResponse>(`/webhooks`)
+  }
 }
