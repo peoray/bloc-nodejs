@@ -1,5 +1,9 @@
 import { HTTPCore } from '../api'
-import { ICreditAccount, ICreditAccountResponse } from '../types'
+import {
+  ISimulationAccount,
+  ICreditAccountResponse,
+  IDebitAccountResponse,
+} from '../types'
 
 /**
  * Class representing operations related to Webhooks, extending HTTPCore.
@@ -15,8 +19,14 @@ export class Simulation extends HTTPCore {
   }
 
   public async creditAccount(
-    data: ICreditAccount
+    data: ISimulationAccount
   ): Promise<ICreditAccountResponse> {
     return this.post<ICreditAccountResponse>(`/accounts/credit/manual`, data)
+  }
+
+  public async debitAccount(
+    data: ISimulationAccount
+  ): Promise<IDebitAccountResponse> {
+    return this.post<IDebitAccountResponse>(`/accounts/debit/manual`, data)
   }
 }
