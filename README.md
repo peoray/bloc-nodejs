@@ -13,6 +13,16 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
 - [Available Methods exposed by the SDK](#available-methods-exposed-by-the-sdk)
   - [Checkout API](#checkout-api)
     - [Create Checkout](#create-checkout)
+  - [Customers API](#customers-api)
+    - [Create Customer](#create-customer)
+    - [Get Customers](#get-customers)
+    - [Upgrade Customer to KYC T1](#upgrade-customer-to-kyc-t1)
+    - [Upgrade Customer to KYC T2](#upgrade-customer-to-kyc-t2)
+    - [Upgrade Customer to KYC T3](#upgrade-customer-to-kyc-t3)
+    - [Update Customer](#update-customer)
+    - [Get Customer By ID](#get-customer-by-id)
+    - [Means of Identification](#means-of-identification)
+    - [Revalidate Customer KYC](#revalidate-customer-kyc)
 - [License](#license)
 
 ## Prerequisites
@@ -76,6 +86,139 @@ console.log(response) // ICheckoutResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createcheckout)
+
+### Customers API
+
+Customer API operations
+
+#### Create Customer
+
+```ts
+// import the customer interfaces from the sdk
+import type { ICreateCustomer, ICreateCustomerResponse } from 'bloc-nodejs';
+
+const payload: ICreateCustomer = {
+  // payload to create checkout   
+}
+
+const response = await bloc.createCustomer(payload)
+console.log(response) // ICreateCustomerResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createcustomers)
+
+#### Get Customers
+
+```ts
+// import the message interfaces from the sdk
+import type { IGetCustomerResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCustomers()
+console.log(response) // IGetCustomerResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcustomers)
+
+#### Upgrade Customer to KYC T1
+
+```ts
+// import the customer interfaces from the sdk
+import type { IUpgradeCustomerToKYCT1, IUpgradeCustomerToKYCTierResponse } from 'bloc-nodejs';
+
+const payload: IUpgradeCustomerToKYCT1 = {
+  // payload data  
+}
+
+const response = await bloc.upgradeCustomerToKYCT1('customer-id', payload)
+console.log(response) // IUpgradeCustomerToKYCTierResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/upgradecustomertokyct1)
+
+#### Upgrade Customer to KYC T2
+
+```ts
+// import the customer interfaces from the sdk
+import type { IUpgradeCustomerToKYCT2, IUpgradeCustomerToKYCTierResponse } from 'bloc-nodejs';
+
+const payload: IUpgradeCustomerToKYCT2 = {
+  // payload data  
+}
+
+const response = await bloc.upgradeCustomerToKYCT2('customer-id', payload)
+console.log(response) // IUpgradeCustomerToKYCTierResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/upgradecustomertokyct2)
+
+#### Upgrade Customer to KYC T3
+
+```ts
+// import the customer interfaces from the sdk
+import type { IUpgradeCustomerToKYCT3, IUpgradeCustomerToKYCTierResponse } from 'bloc-nodejs';
+
+const payload: IUpgradeCustomerToKYCT3 = {
+  // payload data  
+}
+
+const response = await bloc.upgradeCustomerToKYCT3('customer-id', payload)
+console.log(response) // IUpgradeCustomerToKYCTierResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/upgradecustomertokyct3)
+
+#### Update Customer
+
+```ts
+// import the customer interfaces from the sdk
+import type { IUpdateCustomer, IUpdateCustomerResponse } from 'bloc-nodejs';
+
+const payload: IUpdateCustomer = {
+  // payload data  
+}
+
+const response = await bloc.updateCustomer('customer-id', payload)
+console.log(response) // IUpdateCustomerResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/updatecustomer)
+
+#### Get Customer By ID
+
+```ts
+// import the customer interfaces from the sdk
+import type { IGetCustomerByIdResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCustomerById('customer-id')
+console.log(response) // IGetCustomerByIdResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcustomerbyid)
+
+#### Means of Identification
+
+```ts
+// import the customer interfaces from the sdk
+import type { IMeansOfIdentification } from 'bloc-nodejs';
+
+const response = await bloc.meansOfIdentification()
+console.log(response) // IMeansOfIdentification
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/meansofidentification)
+
+#### Revalidate Customer KYC
+
+```ts
+// import the customer interfaces from the sdk
+import type { IRevalidateCustomerKYCResponse } from 'bloc-nodejs';
+
+const response = await bloc.revalidateCustomerKYC('customer-id')
+console.log(response) // IRevalidateCustomerKYCResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/revalidatecustomerkyc)
+
 
 ## License
 
