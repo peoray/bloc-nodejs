@@ -33,6 +33,9 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Transactions API](#transactions-api)
     - [Get All Transactions](#get-all-transactions)
     - [Get Transaction by Reference](#get-transaction-by-reference)
+  - [Webhook API](#webhook-api)
+    - [Set Webhook](#set-webhook)
+    - [Get Webhook](#get-webhook)
 - [License](#license)
 
 ## Prerequisites
@@ -332,6 +335,38 @@ console.log(response) // ITransactionByReferenceResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getalltransactions)
+
+### Webhook API
+
+Webhook API operations
+
+#### Set Webhook
+
+```ts
+// import the webhook interfaces from the sdk
+import type { ISetWebhook, IWebhookResponse } from 'bloc-nodejs';
+
+const payload: ISetWebhook = {
+  // payload data  
+}
+
+const response = await bloc.setWebhook(payload)
+console.log(response) // IWebhookResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/setwebhook)
+
+#### Get Webhook
+
+```ts
+// import the webhook interfaces from the sdk
+import type { IWebhookResponse } from 'bloc-nodejs';
+
+const response = await bloc.getWebhook()
+console.log(response) // IWebhookResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getwebhook)
 
 ## License
 
