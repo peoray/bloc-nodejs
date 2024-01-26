@@ -30,6 +30,9 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Simulation API](#simulation-api)
     - [Credit Account](#credit-account)
     - [Debit Account](#debit-account)
+  - [Transactions API](#transactions-api)
+    - [Get All Transactions](#get-all-transactions)
+    - [Get Transaction by Reference](#get-transaction-by-reference)
 - [License](#license)
 
 ## Prerequisites
@@ -301,6 +304,34 @@ console.log(response) // IDebitAccountResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitaccount)
+
+### Transactions API
+
+Transactions API operations
+
+#### Get All Transactions
+
+```ts
+// import the transactions interfaces from the sdk
+import type { ITransactionResponse } from 'bloc-nodejs';
+
+const response = await bloc.getAllTransactions()
+console.log(response) // ITransactionResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getalltransactions)
+
+#### Get Transaction by Reference
+
+```ts
+// import the transactions interfaces from the sdk
+import type { ITransactionByReferenceResponse } from 'bloc-nodejs';
+
+const response = await bloc.getTransactionByReference('ref_num')
+console.log(response) // ITransactionByReferenceResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getalltransactions)
 
 ## License
 
