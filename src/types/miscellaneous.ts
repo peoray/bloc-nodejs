@@ -7,3 +7,12 @@ export interface IListOfBanksResponse {
   }[]
   message: string
 }
+
+export interface IResolveAccountResponse {
+  success: boolean
+  data: {
+    account_name: string
+    account_number: string
+  }[]
+  message: string
+}

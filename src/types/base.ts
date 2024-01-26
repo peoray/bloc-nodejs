@@ -4,6 +4,8 @@ export interface IQueryParams {
   }
   per_page?: number
   start_date?: string
+  account_number?: string
+  bank_code?: string
   end_date?: string
   status?: string
   drcr?: string

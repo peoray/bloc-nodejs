@@ -1,5 +1,6 @@
 import { HTTPCore } from '../api'
-import { IListOfBanksResponse } from '../types'
+import { IListOfBanksResponse, IResolveAccountResponse } from '../types'
+import { IQueryParams } from '../types/base'
 
 /**
  * Class representing operations related to Simulations, extending HTTPCore.
@@ -16,5 +17,11 @@ export class Simulation extends HTTPCore {
 
   public async getListOfBanks(): Promise<IListOfBanksResponse> {
     return this.get<IListOfBanksResponse>(`/banks`)
+  }
+
+  public async resolveAccount(
+    params?: IQueryParams
+  ): Promise<IResolveAccountResponse> {
+    return this.get<IResolveAccountResponse>(`/resolve-account`, { params })
   }
 }
