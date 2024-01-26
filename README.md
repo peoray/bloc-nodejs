@@ -10,6 +10,9 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
 - [Getting started](#getting-started)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Available Methods exposed by the SDK](#available-methods-exposed-by-the-sdk)
+  - [Checkout API](#checkout-api)
+    - [Create Checkout](#create-checkout)
 - [License](#license)
 
 ## Prerequisites
@@ -51,6 +54,28 @@ const { Bloc } = require('bloc-nodejs')
 // Instantiate the bloc class
 const bloc = new Bloc('SECRET_KEY, PUBLIC_KEY');
 ```
+
+## Available Methods exposed by the SDK
+
+### Checkout API
+
+Checkout API operations
+
+#### Create Checkout
+
+```ts
+// import the create checkout interfaces from the sdk
+import type { ICreateCheckout, ICheckoutResponse } from 'bloc-nodejs';
+
+const payload: ICreateCheckout = {
+  // payload to create checkout
+}
+
+const response = await bloc.createCheckout(payload)
+console.log(response) // ICheckoutResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createcheckout)
 
 ## License
 
