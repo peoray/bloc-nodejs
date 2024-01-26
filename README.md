@@ -23,6 +23,10 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
     - [Get Customer By ID](#get-customer-by-id)
     - [Means of Identification](#means-of-identification)
     - [Revalidate Customer KYC](#revalidate-customer-kyc)
+  - [Miscellaneous API](#miscellaneous-api)
+    - [Get List of Banks](#get-list-of-banks)
+    - [Resolve Account](#resolve-account)
+    - [Get Exchange Rate](#get-exchange-rate)
 - [License](#license)
 
 ## Prerequisites
@@ -219,6 +223,45 @@ console.log(response) // IRevalidateCustomerKYCResponse
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/revalidatecustomerkyc)
 
+### Miscellaneous API
+
+Miscellaneous API operations
+
+#### Get List of Banks
+
+```ts
+// import the miscellaneous interfaces from the sdk
+import type { IListOfBanksResponse } from 'bloc-nodejs';
+
+const response = await bloc.getListOfBanks()
+console.log(response) // IListOfBanksResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getlistofbanks)
+
+#### Resolve Account
+
+```ts
+// import the miscellaneous interfaces from the sdk
+import type { IResolveAccountResponse } from 'bloc-nodejs';
+
+const response = await bloc.resolveAccount()
+console.log(response) // IResolveAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/resolveaccount)
+
+#### Get Exchange Rate
+
+```ts
+// import the miscellaneous interfaces from the sdk
+import type { IGetExchangeRateResponse } from 'bloc-nodejs';
+
+const response = await bloc.getExchangeRate('NGN-USD')
+console.log(response) // IGetExchangeRateResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getexchangerate)
 
 ## License
 
