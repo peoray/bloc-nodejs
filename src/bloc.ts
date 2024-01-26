@@ -1,14 +1,14 @@
-import { Customer, Beneficiary, Webhhok } from './services'
+import { Customer, Beneficiary, Webhook } from './services'
 
 export class Bloc {
   private customer: Customer
   private beneficiary: Beneficiary
-  private webhook: Webhhok
+  private webhook: Webhook
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
     this.beneficiary = new Beneficiary(secretKey, publicKey)
-    this.webhook = new Webhhok(secretKey, publicKey)
+    this.webhook = new Webhook(secretKey, publicKey)
   }
 
   public get createCustomer() {
