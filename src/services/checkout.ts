@@ -14,6 +14,11 @@ export class Checkout extends HTTPCore {
     super(secretKey, publicKey)
   }
 
+  /**
+   * Creates a new checkout using the provided data.
+   * @param {ICreateCheckout} data - The data to create the checkout.
+   * @returns {Promise<ICheckoutResponse>} A promise that resolves to the checkout response.
+   */
   public async createCheckout(
     data: ICreateCheckout
   ): Promise<ICheckoutResponse> {
