@@ -72,4 +72,7 @@ export class Bloc {
   public get creditAccount() {
     return this.simulation.creditAccount.bind(this.simulation)
   }
+  public get debitAccount() {
+    return this.simulation.debitAccount.bind(this.simulation)
+  }
 }
