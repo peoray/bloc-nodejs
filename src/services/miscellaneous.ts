@@ -9,7 +9,7 @@ import { IQueryParams } from '../types/base'
 /**
  * Class representing operations related to Simulations, extending HTTPCore.
  */
-export class Simulation extends HTTPCore {
+export class Miscellaneous extends HTTPCore {
   /**
    * Creates an instance of the Simulation class.
    * @param {string} secretKey - The secret key for authentication.
