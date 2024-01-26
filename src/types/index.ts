@@ -1,3 +1,6 @@
 export * from './customer'
 export * from './beneficiary'
 export * from './transaction'
+export * from './webhook'
+export * from './checkout'
+export * from './simulation'
