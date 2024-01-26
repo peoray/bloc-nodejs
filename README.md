@@ -36,6 +36,11 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Webhook API](#webhook-api)
     - [Set Webhook](#set-webhook)
     - [Get Webhook](#get-webhook)
+  - [Beneficiaries API](#beneficiaries-api)
+    - [Create Beneficiary](#create-beneficiary)
+    - [Get Beneficiary by ID](#get-beneficiary-by-id)
+    - [Update Beneficiary](#update-beneficiary)
+    - [Delete beneficiary](#delete-beneficiary)
 - [License](#license)
 
 ## Prerequisites
@@ -368,8 +373,65 @@ console.log(response) // IWebhookResponse
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getwebhook)
 
+### Beneficiaries API
+
+Beneficiaries API operations
+
+#### Create Beneficiary
+
+```ts
+// import the beneficiary interfaces from the sdk
+import type { ICreateBeneficiary, IBeneficiaryResponse } from 'bloc-nodejs';
+
+const payload: ICreateBeneficiary = {
+  // payload data  
+}
+
+const response = await bloc.createBeneficiary(payload)
+console.log(response) // IBeneficiaryResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createbeneficiary)
+
+#### Get Beneficiary by ID
+
+```ts
+// import the beneficiary interfaces from the sdk
+import type { IBeneficiaryResponse } from 'bloc-nodejs';
+
+const response = await bloc.getBeneficiaryById('beneficiary-id')
+console.log(response) // IBeneficiaryResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getbeneficiarybyid)
+
+#### Update Beneficiary
+
+```ts
+// import the beneficiary interfaces from the sdk
+import type { IUpdateBeneficiary, IBeneficiaryResponse } from 'bloc-nodejs';
+
+const payload: ICreateBeneficiary = {
+  // payload data  
+}
+
+const response = await bloc.updateBeneficiary('beneficiary-id', payload)
+console.log(response) // IBeneficiaryResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/updatebeneficiary)
+
+#### Delete Beneficiary
+
+```ts
+const response = await bloc.deleteBeneficiary('beneficiary-id')
+console.log(response) // any
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/deletebeneficiary)
+
 ## License
 
-[MIT](https://github.com/peoray/bloc-nodejs/blob/main/LICENSE)
+[MIT](./LICENSE)
 
 [Back to Top](#table-of-content)
