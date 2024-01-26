@@ -1,16 +1,24 @@
-import { Customer, Beneficiary, Webhook, Checkout } from './services'
+import {
+  Customer,
+  Beneficiary,
+  Webhook,
+  Checkout,
+  Simulation,
+} from './services'
 
 export class Bloc {
   private customer: Customer
   private beneficiary: Beneficiary
   private webhook: Webhook
   private checkout: Checkout
+  private simulation: Simulation
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
     this.beneficiary = new Beneficiary(secretKey, publicKey)
     this.webhook = new Webhook(secretKey, publicKey)
     this.checkout = new Checkout(secretKey, publicKey)
+    this.simulation = new Simulation(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -60,5 +68,8 @@ export class Bloc {
   }
   public get createCheckout() {
     return this.checkout.createCheckout.bind(this.checkout)
+  }
+  public get creditAccount() {
+    return this.simulation.creditAccount.bind(this.simulation)
   }
 }
