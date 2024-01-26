@@ -1,5 +1,9 @@
 import { HTTPCore } from '../api'
-import { IListOfBanksResponse, IResolveAccountResponse } from '../types'
+import {
+  IGetExchangeRateResponse,
+  IListOfBanksResponse,
+  IResolveAccountResponse,
+} from '../types'
 import { IQueryParams } from '../types/base'
 
 /**
@@ -23,5 +27,13 @@ export class Simulation extends HTTPCore {
     params?: IQueryParams
   ): Promise<IResolveAccountResponse> {
     return this.get<IResolveAccountResponse>(`/resolve-account`, { params })
+  }
+
+  public async getExchangeRate(
+    currencyPair: string
+  ): Promise<IGetExchangeRateResponse> {
+    return this.get<IGetExchangeRateResponse>(
+      `/rates/currencies/${currencyPair}`
+    )
   }
 }

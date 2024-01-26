@@ -16,3 +16,12 @@ export interface IResolveAccountResponse {
   }[]
   message: string
 }
+
+export interface IGetExchangeRateResponse {
+  success: boolean
+  data: {
+    buy: string
+    sell: string
+  }[]
+  message: string
+}
