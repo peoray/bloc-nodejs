@@ -4,11 +4,13 @@ import {
   Webhook,
   Checkout,
   Simulation,
+  Transaction,
 } from './services'
 
 export class Bloc {
   private customer: Customer
   private beneficiary: Beneficiary
+  private transaction: Transaction
   private webhook: Webhook
   private checkout: Checkout
   private simulation: Simulation
@@ -16,6 +18,7 @@ export class Bloc {
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
     this.beneficiary = new Beneficiary(secretKey, publicKey)
+    this.transaction = new Transaction(secretKey, publicKey)
     this.webhook = new Webhook(secretKey, publicKey)
     this.checkout = new Checkout(secretKey, publicKey)
     this.simulation = new Simulation(secretKey, publicKey)
@@ -59,6 +62,12 @@ export class Bloc {
   }
   public get deleteBeneficiary() {
     return this.beneficiary.deleteBeneficiary.bind(this.beneficiary)
+  }
+  public get getAllTransactions() {
+    return this.transaction.getAllTransactions.bind(this.transaction)
+  }
+  public get getTransactionByReference() {
+    return this.transaction.getTransactionByReference.bind(this.transaction)
   }
   public get setWebhook() {
     return this.webhook.setWebhook.bind(this.webhook)

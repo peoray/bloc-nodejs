@@ -1,5 +1,6 @@
 export * from './customer'
 export * from './beneficary'
+export * from './transaction'
 export * from './webhook'
 export * from './checkout'
 export * from './simulation'
