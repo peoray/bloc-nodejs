@@ -27,6 +27,9 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
     - [Get List of Banks](#get-list-of-banks)
     - [Resolve Account](#resolve-account)
     - [Get Exchange Rate](#get-exchange-rate)
+  - [Simulation API](#simulation-api)
+    - [Credit Account](#credit-account)
+    - [Debit Account](#debit-account)
 - [License](#license)
 
 ## Prerequisites
@@ -262,6 +265,42 @@ console.log(response) // IGetExchangeRateResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getexchangerate)
+
+### Simulation API
+
+Simulation API operations
+
+#### Credit Account
+
+```ts
+// import the simulation interfaces from the sdk
+import type { ISimulationAccount, ICreditAccountResponse } from 'bloc-nodejs';
+
+const payload: ISimulationAccount = {
+  // payload data
+}
+
+const response = await bloc.creditAccount(payload)
+console.log(response) // ICreditAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/creditaccount)
+
+#### Debit Account
+
+```ts
+// import the simulation interfaces from the sdk
+import type { ISimulationAccount, IDebitAccountResponse } from 'bloc-nodejs';
+
+const payload: ISimulationAccount = {
+  // payload data
+}
+
+const response = await bloc.debitAccount(payload)
+console.log(response) // IDebitAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitaccount)
 
 ## License
 
