@@ -4,7 +4,7 @@
   "description": "Nodejs SDK wrapper for Bloc API written with Typescript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "module": "dist/anchor.esm.js",
+  "module": "dist/bloc.esm.js",
   "files": [
     "dist/**/*"
   ],
