@@ -5,6 +5,7 @@ import {
   Checkout,
   Simulation,
   Transaction,
+  Miscellaneous,
 } from './services'
 
 export class Bloc {
@@ -14,6 +15,7 @@ export class Bloc {
   private webhook: Webhook
   private checkout: Checkout
   private simulation: Simulation
+  private miscellaneous: Miscellaneous
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -22,6 +24,7 @@ export class Bloc {
     this.webhook = new Webhook(secretKey, publicKey)
     this.checkout = new Checkout(secretKey, publicKey)
     this.simulation = new Simulation(secretKey, publicKey)
+    this.miscellaneous = new Miscellaneous(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -83,5 +86,14 @@ export class Bloc {
   }
   public get debitAccount() {
     return this.simulation.debitAccount.bind(this.simulation)
+  }
+  public get getListOfBanks() {
+    return this.miscellaneous.getListOfBanks.bind(this.miscellaneous)
+  }
+  public get resolveAccount() {
+    return this.miscellaneous.resolveAccount.bind(this.miscellaneous)
+  }
+  public get getExchangeRate() {
+    return this.miscellaneous.getExchangeRate.bind(this.miscellaneous)
   }
 }
