@@ -4,7 +4,7 @@ import {
   ICreateBeneficiary,
   IBeneficiaryResponse,
   IUpdateBeneficiary,
-} from '../types/beneficiary'
+} from '../types'
 
 /**
  * Class representing Customer operations that extends HTTPCore.
