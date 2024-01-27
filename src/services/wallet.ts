@@ -21,4 +21,8 @@ export class Wallet extends HTTPCore {
   public async getWallets(): Promise<IGetWalletResponse> {
     return this.get<IGetWalletResponse>(`/wallets`)
   }
+
+  public async getWalletById(walletID: string): Promise<IWalletResponse> {
+    return this.get<IWalletResponse>(`/wallets/${walletID}`)
+  }
 }
