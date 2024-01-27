@@ -45,3 +45,8 @@ export interface IGetCustomerWalletResponse {
     has_previous: boolean
   }
 }
+
+export interface IDebitWallet {
+  wallet_id: string
+  amount: string
+}

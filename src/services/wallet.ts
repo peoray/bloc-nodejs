@@ -1,5 +1,6 @@
 import { HTTPCore } from '../api'
 import {
+  IDebitWallet,
   IGetCustomerWalletResponse,
   IGetWalletResponse,
   IWallet,
@@ -37,5 +38,11 @@ export class Wallet extends HTTPCore {
     return this.get<IGetCustomerWalletResponse>(
       `/wallets/customers/${customerID}`
     )
+  }
+
+  public async debitWallet(
+    data: IDebitWallet
+  ): Promise<IGetCustomerWalletResponse> {
+    return this.post<IGetCustomerWalletResponse>(`/wallets/debit/manual`, data)
   }
 }
