@@ -1,7 +1,9 @@
 import { HTTPCore } from '../api'
-import { ITransactionByReferenceResponse } from '../types'
-import { IQueryParams } from '../types/base'
-import { ITransactionResponse } from '../types'
+import {
+  ITransactionResponse,
+  ITransactionByReferenceResponse,
+  IQueryParams,
+} from '../types'
 
 /**
  * Class representing Customer operations that extends HTTPCore.
