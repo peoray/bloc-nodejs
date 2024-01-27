@@ -1,5 +1,10 @@
 import { HTTPCore } from '../api'
-import { IGetWalletResponse, IWallet, IWalletResponse } from '../types'
+import {
+  IGetCustomerWalletResponse,
+  IGetWalletResponse,
+  IWallet,
+  IWalletResponse,
+} from '../types'
 
 /**
  * Class representing Customer operations that extends HTTPCore.
@@ -24,5 +29,13 @@ export class Wallet extends HTTPCore {
 
   public async getWalletById(walletID: string): Promise<IWalletResponse> {
     return this.get<IWalletResponse>(`/wallets/${walletID}`)
+  }
+
+  public async getCustomerWallets(
+    customerID: string
+  ): Promise<IGetCustomerWalletResponse> {
+    return this.get<IGetCustomerWalletResponse>(
+      `/wallets/customers/${customerID}`
+    )
   }
 }

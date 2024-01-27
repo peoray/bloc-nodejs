@@ -35,3 +35,13 @@ export interface IGetWalletResponse {
   data: IWalletData[]
   message: string
 }
+
+export interface IGetCustomerWalletResponse {
+  success: boolean
+  data: IWalletData[]
+  message: string
+  metadata: {
+    has_next: boolean
+    has_previous: boolean
+  }
+}
