@@ -1,7 +1,8 @@
 import { HTTPCore } from '../api'
 import {
   ITransferFromAFixedAccountRequest,
-  ITransferFromAFixedAccountResponse,
+  ITransferFromOrganizationBalance,
+  ITransferResponse,
 } from '../types'
 
 /**
@@ -19,7 +20,13 @@ export class Transfers extends HTTPCore {
 
   public async transferFromAFixedAccount(
     data: ITransferFromAFixedAccountRequest
-  ): Promise<ITransferFromAFixedAccountResponse> {
-    return this.post<ITransferFromAFixedAccountResponse>(`/transfers`, data)
+  ): Promise<ITransferResponse> {
+    return this.post<ITransferResponse>(`/transfers`, data)
+  }
+
+  public async transferFromOrganizationBalance(
+    data: ITransferFromOrganizationBalance
+  ): Promise<ITransferResponse> {
+    return this.post<ITransferResponse>(`/transfers/balance`, data)
   }
 }

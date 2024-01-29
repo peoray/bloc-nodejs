@@ -7,7 +7,7 @@ export interface ITransferFromAFixedAccountRequest {
   reference: string
 }
 
-export interface ITransferFromAFixedAccountResponse {
+export interface ITransferResponse {
   success: boolean
   data: {
     reference: string
@@ -22,4 +22,9 @@ export interface ITransferFromAFixedAccountResponse {
     create_at: string
   }
   message: string
+}
+
+export interface ITransferFromOrganizationBalance
+  extends Omit<ITransferFromAFixedAccountRequest, 'account_id'> {
+  account_id?: never
 }
