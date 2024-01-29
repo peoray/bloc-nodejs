@@ -53,4 +53,12 @@ export class Accounts extends HTTPCore {
   ): Promise<IAccountResponse> {
     return this.get<IAccountResponse>(`/accounts/number/${accountNumber}`)
   }
+
+  public async getcustomerAccounts(
+    customerID: string
+  ): Promise<IGetAccountsResponse> {
+    return this.get<IGetAccountsResponse>(
+      `/accounts/customers/accounts/${customerID}`
+    )
+  }
 }
