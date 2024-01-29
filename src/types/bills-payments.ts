@@ -14,3 +14,17 @@ export interface ISupportedOperatorsResponse {
   }[]
   message: string
 }
+
+export interface IOperatorProductsResponse {
+  success: boolean
+  data: {
+    category: string
+    desc: string | null
+    fee_type: string
+    id: string
+    meta: string | null
+    name: string
+    operator: string
+  }[]
+  message: string
+}
