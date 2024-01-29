@@ -82,4 +82,14 @@ export class Accounts extends HTTPCore {
       data
     )
   }
+
+  public async unfreezeAccount(
+    accountID: string,
+    data: IFreezeAccountRequest
+  ): Promise<IFreezeAccountResponse> {
+    return this.put<IFreezeAccountResponse>(
+      `/accounts/${accountID}/unfreeze`,
+      data
+    )
+  }
 }
