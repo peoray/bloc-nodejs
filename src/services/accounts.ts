@@ -5,6 +5,7 @@ import {
   ICreateCollectionAccountResponse,
   ICreateFixedAccountRequest,
   IGetAccountsResponse,
+  IGetCollectionAccountResponse,
 } from '../types'
 
 /**
@@ -41,5 +42,9 @@ export class Accounts extends HTTPCore {
 
   public async getAccountById(accountID: string): Promise<IAccountResponse> {
     return this.get<IAccountResponse>(`/accounts/${accountID}`)
+  }
+
+  public async getCollectionAccount(): Promise<IGetCollectionAccountResponse> {
+    return this.get<IGetCollectionAccountResponse>(`/accounts/collections`)
   }
 }

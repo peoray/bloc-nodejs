@@ -39,6 +39,20 @@ interface IAccount {
   }
 }
 
+interface ICollectionAccount {
+  id: string
+  name: string
+  created_at: string
+  account_number: string
+  bank_name: string
+  collection_rules: {
+    frequency: number
+    amount: number
+  }
+  preferred_bank: string
+  environment: string
+}
+
 export interface ICreateFixedAccountRequest {
   customer_id: string
   preferred_bank: string
@@ -62,24 +76,18 @@ export interface ICreateCollectionAccountRequest
 
 export interface ICreateCollectionAccountResponse {
   success: boolean
-  data: {
-    id: string
-    name: string
-    created_at: string
-    account_number: string
-    bank_name: string
-    collection_rules: {
-      frequency: number
-      amount: number
-    }
-    preferred_bank: string
-    environment: string
-  }
+  data: ICollectionAccount
   message: string
 }
 
 export interface IGetAccountsResponse {
   success: boolean
   data: IAccount[]
+  message: string
+}
+
+export interface IGetCollectionAccountResponse {
+  success: boolean
+  data: ICollectionAccount[]
   message: string
 }
