@@ -4,8 +4,8 @@ import {
   ICreateCollectionAccountRequest,
   ICreateCollectionAccountResponse,
   ICreateFixedAccountRequest,
-  IFreezeAccountRequest,
-  IFreezeAccountResponse,
+  IUpdateAccountRequest,
+  IUpdateAccountResponse,
   IGetAccountsResponse,
   IGetCollectionAccountResponse,
   IGetOrganisationDefaultAccountsResponse,
@@ -75,9 +75,9 @@ export class Accounts extends HTTPCore {
 
   public async freezeAccount(
     accountID: string,
-    data: IFreezeAccountRequest
-  ): Promise<IFreezeAccountResponse> {
-    return this.put<IFreezeAccountResponse>(
+    data: IUpdateAccountRequest
+  ): Promise<IUpdateAccountResponse> {
+    return this.put<IUpdateAccountResponse>(
       `/accounts/${accountID}/freeze`,
       data
     )
@@ -85,10 +85,20 @@ export class Accounts extends HTTPCore {
 
   public async unfreezeAccount(
     accountID: string,
-    data: IFreezeAccountRequest
-  ): Promise<IFreezeAccountResponse> {
-    return this.put<IFreezeAccountResponse>(
+    data: IUpdateAccountRequest
+  ): Promise<IUpdateAccountResponse> {
+    return this.put<IUpdateAccountResponse>(
       `/accounts/${accountID}/unfreeze`,
+      data
+    )
+  }
+
+  public async closeAccount(
+    accountID: string,
+    data: IUpdateAccountRequest
+  ): Promise<IUpdateAccountResponse> {
+    return this.put<IUpdateAccountResponse>(
+      `/accounts/${accountID}/close`,
       data
     )
   }

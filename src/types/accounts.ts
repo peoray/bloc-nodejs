@@ -104,11 +104,11 @@ export interface IGetOrganisationDefaultAccountsResponse {
   message: string
 }
 
-export interface IFreezeAccountRequest {
+export interface IUpdateAccountRequest {
   reason: string
 }
 
-export interface IFreezeAccountResponse {
+export interface IUpdateAccountResponse {
   success: boolean
   message: string
 }
