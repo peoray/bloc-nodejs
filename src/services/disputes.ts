@@ -3,6 +3,7 @@ import {
   ICreateCardDisputeRequest,
   ICreateCardDisputeResponse,
   IGetCardDisputeReasonsResponse,
+  IGetCardDisputesResponse,
 } from '../types'
 
 /**
@@ -27,6 +28,10 @@ export class Disputes extends HTTPCore {
   public async createCardDispute(
     data: ICreateCardDisputeRequest
   ): Promise<ICreateCardDisputeResponse> {
-    return this.post<ICreateCardDisputeResponse>(`/cards/dispute/reasons`, data)
+    return this.post<ICreateCardDisputeResponse>(`/cards/dispute`, data)
+  }
+
+  public async getCardDisputes(): Promise<IGetCardDisputesResponse> {
+    return this.get<IGetCardDisputesResponse>(`/cards/dispute`)
   }
 }
