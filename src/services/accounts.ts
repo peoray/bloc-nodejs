@@ -47,4 +47,10 @@ export class Accounts extends HTTPCore {
   public async getCollectionAccount(): Promise<IGetCollectionAccountResponse> {
     return this.get<IGetCollectionAccountResponse>(`/accounts/collections`)
   }
+
+  public async getAccountByAccountNumber(
+    accountNumber: string
+  ): Promise<IAccountResponse> {
+    return this.get<IAccountResponse>(`/accounts/number/${accountNumber}`)
+  }
 }
