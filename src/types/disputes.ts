@@ -5,3 +5,34 @@ export interface IGetCardDisputeReasonsResponse {
   }[]
   message: string
 }
+
+export interface ICreateCardDisputeRequest {
+  transaction_id: string
+  reason: string
+  explanation: string
+  meta_data: {
+    payment: string
+  }
+}
+
+export interface ICreateCardDisputeResponse {
+  success: boolean
+  data: {
+    id: string
+    customer_id: string
+    organisation_id: string
+    environment: string
+    card_id: string
+    transaction_id: string
+    created_at: string
+    updated_at: string
+    transaction_amount: number
+    reason: string
+    explanation: string
+    status: string
+    metadata: {
+      payment: string
+    }
+  }
+  message: string
+}

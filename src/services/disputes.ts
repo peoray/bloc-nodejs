@@ -1,5 +1,9 @@
 import { HTTPCore } from '../api'
-import { IGetCardDisputeReasonsResponse } from '../types'
+import {
+  ICreateCardDisputeRequest,
+  ICreateCardDisputeResponse,
+  IGetCardDisputeReasonsResponse,
+} from '../types'
 
 /**
  * Class representing operations related to Disputes, extending HTTPCore.
@@ -18,5 +22,11 @@ export class Disputes extends HTTPCore {
     IGetCardDisputeReasonsResponse
   > {
     return this.get<IGetCardDisputeReasonsResponse>(`/cards/dispute/reasons`)
+  }
+
+  public async createCardDispute(
+    data: ICreateCardDisputeRequest
+  ): Promise<ICreateCardDisputeResponse> {
+    return this.post<ICreateCardDisputeResponse>(`/cards/dispute/reasons`, data)
   }
 }
