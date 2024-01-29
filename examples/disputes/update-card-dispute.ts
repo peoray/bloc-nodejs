@@ -1,11 +1,10 @@
-import { Bloc, ICreateCardDisputeRequest } from '../../dist'
+import { Bloc, IUpdateCardDisputeRequest } from '../../dist'
 
 const bloc = new Bloc('secret-keyasfasfbahfb', 'public-key')
 
-const createCardDispute = async () => {
+const updateCardDispute = async () => {
   try {
-    const data: ICreateCardDisputeRequest = {
-      transaction_id: '6437d9b03260fa1c251dd21d',
+    const data: IUpdateCardDisputeRequest = {
       reason: 'fraudulent',
       explanation:
         'Some explanation about the fraudulent activity, that I can explain',
@@ -13,11 +12,11 @@ const createCardDispute = async () => {
         payment: 'fraudulent payment',
       },
     }
-    const response = await bloc.createCardDispute(data)
+    const response = await bloc.updateCardDispute('dispute-id', data)
     console.log(response)
   } catch (error) {
     console.error(error)
   }
 }
 
-createCardDispute()
+updateCardDispute()
