@@ -51,3 +51,26 @@ export interface IAccountResponse {
     }
   }
 }
+
+export interface ICreateCollectionAccountRequest
+  extends Omit<ICreateFixedAccountRequest, 'customer_id'> {
+  customer_id?: never
+}
+
+export interface ICreateCollectionAccountResponse {
+  success: boolean
+  data: {
+    id: string
+    name: string
+    created_at: string
+    account_number: string
+    bank_name: string
+    collection_rules: {
+      frequency: number
+      amount: number
+    }
+    preferred_bank: string
+    environment: string
+  }
+  message: string
+}

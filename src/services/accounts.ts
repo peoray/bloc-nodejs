@@ -1,5 +1,10 @@
 import { HTTPCore } from '../api'
-import { IAccountResponse, ICreateFixedAccountRequest } from '../types'
+import {
+  IAccountResponse,
+  ICreateCollectionAccountRequest,
+  ICreateCollectionAccountResponse,
+  ICreateFixedAccountRequest,
+} from '../types'
 
 /**
  * Class representing operations related to Accounts, extending HTTPCore.
@@ -18,5 +23,14 @@ export class Accounts extends HTTPCore {
     data: ICreateFixedAccountRequest
   ): Promise<IAccountResponse> {
     return this.post<IAccountResponse>(`/accounts`, data)
+  }
+
+  public async createCollectionAccount(
+    data: ICreateCollectionAccountRequest
+  ): Promise<ICreateCollectionAccountResponse> {
+    return this.post<ICreateCollectionAccountResponse>(
+      `/accounts/collections`,
+      data
+    )
   }
 }
