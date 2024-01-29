@@ -28,3 +28,11 @@ export interface ITransferFromOrganizationBalance
   extends Omit<ITransferFromAFixedAccountRequest, 'account_id'> {
   account_id?: never
 }
+
+export interface IInternalTransferRequest {
+  amount: number
+  from_account_id: string
+  to_account_id: string
+  narration: string
+  reference: string
+}

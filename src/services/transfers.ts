@@ -1,5 +1,6 @@
 import { HTTPCore } from '../api'
 import {
+  IInternalTransferRequest,
   ITransferFromAFixedAccountRequest,
   ITransferFromOrganizationBalance,
   ITransferResponse,
@@ -28,5 +29,11 @@ export class Transfers extends HTTPCore {
     data: ITransferFromOrganizationBalance
   ): Promise<ITransferResponse> {
     return this.post<ITransferResponse>(`/transfers/balance`, data)
+  }
+
+  public async internalTransfer(
+    data: IInternalTransferRequest
+  ): Promise<ITransferResponse> {
+    return this.post<ITransferResponse>(`/transfers/internal`, data)
   }
 }
