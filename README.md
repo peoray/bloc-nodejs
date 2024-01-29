@@ -11,6 +11,19 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Methods exposed by the SDK](#available-methods-exposed-by-the-sdk)
+  - [Accounts API](#accounts-api)
+    - [Create Fixed Account](#create-fixed-account)
+    - [Create Collection Account](#create-collection-account)
+    - [Get accounts](#get-accounts)
+    - [Get Account By ID](#get-account-by-id)
+    - [Get Collection Account](#get-collection-account)
+    - [Get Account by Account Number](#get-account-by-account-number)
+    - [Get Customer Accounts](#get-customer-accounts)
+    - [Get Organisation Default Accounts](#get-organisation-default-accounts)
+    - [Freeze Account](#freeze-account)
+    - [Unfreeze Account](#unfreeze-account)
+    - [Close Account](#close-account)
+    - [Reopen Account](#reopen-account)
   - [Wallets API](#wallets-api)
     - [Create Wallet](#create-wallet)
     - [Get Wallets](#get-wallets)
@@ -113,6 +126,178 @@ const bloc = new Bloc('SECRET_KEY, PUBLIC_KEY');
 ```
 
 ## Available Methods exposed by the SDK
+
+### Accounts API
+
+Accounts API operations
+
+#### Create Fixed Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { ICreateFixedAccountRequest, IAccountResponse } from 'bloc-nodejs';
+
+const payload: ICreateFixedAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.createFixedAccount(payload)
+console.log(response) // IAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createfixedaccount)
+
+#### Create Collection Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { ICreateCollectionAccountRequest, ICreateCollectionAccountResponse } from 'bloc-nodejs';
+
+const payload: ICreateCollectionAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.createCollectionAccount(payload)
+console.log(response) // ICreateCollectionAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createcollectionaccount)
+
+#### Get Accounts
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IGetAccountsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getAccounts(payload)
+console.log(response) // IGetAccountsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getaccounts)
+
+#### Get Account By ID
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IAccountResponse } from 'bloc-nodejs';
+
+const response = await bloc.getAccountById('account-id')
+console.log(response) // IAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getaccountbyid)
+
+#### Get Collection Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IAccountResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCollectionAccount()
+console.log(response) // IAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcollectionaccount)
+
+#### Get Account by Account Number
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IAccountResponse } from 'bloc-nodejs';
+
+const response = await bloc.getAccountByAccountNumber('account-number')
+console.log(response) // IAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getaccountbyaccountnumber)
+
+#### Get Customer Accounts
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IGetAccountsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCustomerAccounts('customer-id')
+console.log(response) // IGetAccountsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcustomeraccounts)
+
+#### Get Organisation Default Accounts
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IGetOrganisationDefaultAccountsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getOrganisationDefaultAccounts()
+console.log(response) // IGetOrganisationDefaultAccountsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getorganisationdefaultaccounts)
+
+#### Freeze Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IUpdateAccountRequest, IUpdateAccountResponse } from 'bloc-nodejs';
+
+const payload: IUpdateAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.freezeAccount('account-id', data)
+console.log(response) // IUpdateAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/freezeaccount)
+
+#### Unfreeze Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IUpdateAccountRequest, IUpdateAccountResponse } from 'bloc-nodejs';
+
+const payload: IUpdateAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.unfreezeAccount('account-id', data)
+console.log(response) // IUpdateAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/unfreezeaccount-1)
+
+#### Close Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IUpdateAccountRequest, IUpdateAccountResponse } from 'bloc-nodejs';
+
+const payload: IUpdateAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.closeAccount('account-id', data)
+console.log(response) // IUpdateAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/closeaccount)
+
+#### Reopen Account
+
+```ts
+// import the accounts interfaces from the sdk
+import type { IUpdateAccountRequest, IUpdateAccountResponse } from 'bloc-nodejs';
+
+const payload: IUpdateAccountRequest = {
+  // payload data
+}
+
+const response = await bloc.reopenAccount('account-id', data)
+console.log(response) // IUpdateAccountResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/reopenaccount)
 
 ### Wallets API
 
