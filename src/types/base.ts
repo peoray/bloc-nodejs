@@ -15,4 +15,7 @@ export interface IQueryParams {
   account_id?: string
   customer_id?: string
   limit?: number
+  bill: string
+  meter_type: string
+  device_number: string
 }
