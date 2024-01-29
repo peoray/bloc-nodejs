@@ -37,3 +37,12 @@ export interface IEditPaymentLinkRequest {
   name: string
   description: string
 }
+
+export interface IDeletePaymentLinksRequest {
+  ids: string[]
+}
+
+export interface IDeletePaymentLinksResponse {
+  success: boolean
+  message: string
+}

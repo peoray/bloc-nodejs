@@ -117,7 +117,11 @@ export class HTTPCore {
    * @param {AxiosRequestConfig} [config] - The Axios request configuration.
    * @returns {Promise<T>} - The response data.
    */
-  public async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+  public async delete<T>(
+    url: string,
+    // data?: any,
+    config?: AxiosRequestConfig
+  ): Promise<T> {
     return this.handleRequest<T>(this.request.delete(url, config))
   }
 }

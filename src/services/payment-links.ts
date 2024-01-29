@@ -4,6 +4,8 @@ import {
   IPaymentLinkResponse,
   IGetPaymentLinksResponse,
   IEditPaymentLinkRequest,
+  IDeletePaymentLinksResponse,
+  IDeletePaymentLinksRequest,
 } from '../types'
 
 /**
@@ -40,5 +42,11 @@ export class PaymentLinks extends HTTPCore {
     data: IEditPaymentLinkRequest
   ): Promise<IPaymentLinkResponse> {
     return this.put<IPaymentLinkResponse>(`/paymentlinks/${linkId}`, data)
+  }
+
+  public async deletePaymentLink(
+    data: IDeletePaymentLinksRequest
+  ): Promise<IDeletePaymentLinksResponse> {
+    return this.delete<IDeletePaymentLinksResponse>(`/paymentlinks`, { data })
   }
 }
