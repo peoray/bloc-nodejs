@@ -10,6 +10,7 @@ import {
   BillsPayments,
   Disputes,
   Transfers,
+  PaymentLinks,
 } from './services'
 
 export class Bloc {
@@ -24,6 +25,7 @@ export class Bloc {
   private billsPayments: BillsPayments
   private disputes: Disputes
   private transfers: Transfers
+  private paymentLinks: PaymentLinks
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -37,6 +39,7 @@ export class Bloc {
     this.billsPayments = new BillsPayments(secretKey, publicKey)
     this.disputes = new Disputes(secretKey, publicKey)
     this.transfers = new Transfers(secretKey, publicKey)
+    this.paymentLinks = new PaymentLinks(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -164,5 +167,20 @@ export class Bloc {
   }
   public get bulkTransfer() {
     return this.transfers.bulkTransfer.bind(this.transfers)
+  }
+  public get createPaymentLink() {
+    return this.paymentLinks.createPaymentLink.bind(this.paymentLinks)
+  }
+  public get getPaymentLinks() {
+    return this.paymentLinks.getPaymentLinks.bind(this.paymentLinks)
+  }
+  public get getPaymentLinkById() {
+    return this.paymentLinks.getPaymentLinkById.bind(this.paymentLinks)
+  }
+  public get editPaymentLink() {
+    return this.paymentLinks.editPaymentLink.bind(this.paymentLinks)
+  }
+  public get deletePaymentLink() {
+    return this.paymentLinks.deletePaymentLink.bind(this.paymentLinks)
   }
 }

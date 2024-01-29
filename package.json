@@ -40,7 +40,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "lint": "tsdx lint",
-    "dev": "npx tsx ./examples/transaction/get-all-transactions.ts",
+    "dev": "npx tsx ./examples/payment-links/create-payment-link.ts",
     "prepare": "tsdx build",
     "prepublishOnly": "pnpm build",
     "preversion": "pnpm build"
