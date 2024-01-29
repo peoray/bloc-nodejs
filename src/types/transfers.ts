@@ -1,10 +1,13 @@
-export interface ITransferFromAFixedAccountRequest {
+interface ITransfer {
   amount: number
   bank_code: string
   account_number: string
   narration: string
-  account_id: string
   reference: string
+}
+
+export interface ITransferFromAFixedAccountRequest extends ITransfer {
+  account_id: string
 }
 
 export interface ITransferResponse {
@@ -24,10 +27,7 @@ export interface ITransferResponse {
   message: string
 }
 
-export interface ITransferFromOrganizationBalance
-  extends Omit<ITransferFromAFixedAccountRequest, 'account_id'> {
-  account_id?: never
-}
+export interface ITransferFromOrganizationBalance extends ITransfer {}
 
 export interface IInternalTransferRequest {
   amount: number
@@ -35,4 +35,9 @@ export interface IInternalTransferRequest {
   to_account_id: string
   narration: string
   reference: string
+}
+
+export interface IBulkTransferRequest {
+  account_id: string
+  bulk_list: ITransfer[]
 }

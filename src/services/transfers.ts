@@ -1,5 +1,6 @@
 import { HTTPCore } from '../api'
 import {
+  IBulkTransferRequest,
   IInternalTransferRequest,
   ITransferFromAFixedAccountRequest,
   ITransferFromOrganizationBalance,
@@ -35,5 +36,11 @@ export class Transfers extends HTTPCore {
     data: IInternalTransferRequest
   ): Promise<ITransferResponse> {
     return this.post<ITransferResponse>(`/transfers/internal`, data)
+  }
+
+  public async bulkTransfer(
+    data: IBulkTransferRequest
+  ): Promise<ITransferResponse> {
+    return this.post<ITransferResponse>(`/transfers/bulk`, data)
   }
 }
