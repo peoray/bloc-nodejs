@@ -32,3 +32,8 @@ export interface IGetPaymentLinksResponse {
   data: IPaymentLink[]
   message: string
 }
+
+export interface IEditPaymentLinkRequest {
+  name: string
+  description: string
+}

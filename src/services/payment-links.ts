@@ -3,6 +3,7 @@ import {
   ICreatePaymentLinkRequest,
   IPaymentLinkResponse,
   IGetPaymentLinksResponse,
+  IEditPaymentLinkRequest,
 } from '../types'
 
 /**
@@ -32,5 +33,12 @@ export class PaymentLinks extends HTTPCore {
     linkId: string
   ): Promise<IPaymentLinkResponse> {
     return this.get<IPaymentLinkResponse>(`/paymentlinks/${linkId}`)
+  }
+
+  public async editPaymentLink(
+    linkId: string,
+    data: IEditPaymentLinkRequest
+  ): Promise<IPaymentLinkResponse> {
+    return this.put<IPaymentLinkResponse>(`/paymentlinks/${linkId}`, data)
   }
 }
