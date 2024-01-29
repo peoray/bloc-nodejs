@@ -6,6 +6,7 @@ import {
   ICreateFixedAccountRequest,
   IGetAccountsResponse,
   IGetCollectionAccountResponse,
+  IGetOrganisationDefaultAccountsResponse,
 } from '../types'
 
 /**
@@ -59,6 +60,14 @@ export class Accounts extends HTTPCore {
   ): Promise<IGetAccountsResponse> {
     return this.get<IGetAccountsResponse>(
       `/accounts/customers/accounts/${customerID}`
+    )
+  }
+
+  public async getOrganisationDefaultAccounts(): Promise<
+    IGetOrganisationDefaultAccountsResponse
+  > {
+    return this.get<IGetOrganisationDefaultAccountsResponse>(
+      `/accounts/organization/default`
     )
   }
 }

@@ -91,3 +91,15 @@ export interface IGetCollectionAccountResponse {
   data: ICollectionAccount[]
   message: string
 }
+
+export interface IGetOrganisationDefaultAccountsResponse {
+  success: boolean
+  data: {
+    id: string
+    type: string
+    number: string
+    balance: number
+    bank: string
+  }[]
+  message: string
+}
