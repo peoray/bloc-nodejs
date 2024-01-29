@@ -6,6 +6,7 @@ import {
   Simulation,
   Transaction,
   Miscellaneous,
+  Wallet,
 } from './services'
 
 export class Bloc {
@@ -16,6 +17,7 @@ export class Bloc {
   private checkout: Checkout
   private simulation: Simulation
   private miscellaneous: Miscellaneous
+  private wallet: Wallet
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -25,6 +27,7 @@ export class Bloc {
     this.checkout = new Checkout(secretKey, publicKey)
     this.simulation = new Simulation(secretKey, publicKey)
     this.miscellaneous = new Miscellaneous(secretKey, publicKey)
+    this.wallet = new Wallet(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -95,5 +98,20 @@ export class Bloc {
   }
   public get getExchangeRate() {
     return this.miscellaneous.getExchangeRate.bind(this.miscellaneous)
+  }
+  public get createWallet() {
+    return this.wallet.createWallet.bind(this.wallet)
+  }
+  public get getWallets() {
+    return this.wallet.getWallets.bind(this.wallet)
+  }
+  public get getWalletById() {
+    return this.wallet.getWalletById.bind(this.wallet)
+  }
+  public get getCustomerWallets() {
+    return this.wallet.getCustomerWallets.bind(this.wallet)
+  }
+  public get debitWallet() {
+    return this.wallet.debitWallet.bind(this.wallet)
   }
 }
