@@ -4,6 +4,8 @@ import {
   ICreateCollectionAccountRequest,
   ICreateCollectionAccountResponse,
   ICreateFixedAccountRequest,
+  IFreezeAccountRequest,
+  IFreezeAccountResponse,
   IGetAccountsResponse,
   IGetCollectionAccountResponse,
   IGetOrganisationDefaultAccountsResponse,
@@ -68,6 +70,16 @@ export class Accounts extends HTTPCore {
   > {
     return this.get<IGetOrganisationDefaultAccountsResponse>(
       `/accounts/organization/default`
+    )
+  }
+
+  public async freezeAccount(
+    accountID: string,
+    data: IFreezeAccountRequest
+  ): Promise<IFreezeAccountResponse> {
+    return this.put<IFreezeAccountResponse>(
+      `/accounts/${accountID}/freeze`,
+      data
     )
   }
 }

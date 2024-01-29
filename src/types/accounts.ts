@@ -103,3 +103,12 @@ export interface IGetOrganisationDefaultAccountsResponse {
   }[]
   message: string
 }
+
+export interface IFreezeAccountRequest {
+  reason: string
+}
+
+export interface IFreezeAccountResponse {
+  success: boolean
+  message: string
+}
