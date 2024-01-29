@@ -11,6 +11,12 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Methods exposed by the SDK](#available-methods-exposed-by-the-sdk)
+  - [Wallets API](#wallets-api)
+    - [Create Wallet](#create-wallet)
+    - [Get Wallets](#get-wallet)
+    - [Get Wallet by id](#get-wallet-by-id)
+    - [Get Customer Wallets](#get-customer-wallets)
+    - [Debit Wallet](#debit-wallet)
   - [Checkout API](#checkout-api)
     - [Create Checkout](#create-checkout)
   - [Customers API](#customers-api)
@@ -84,6 +90,78 @@ const bloc = new Bloc('SECRET_KEY, PUBLIC_KEY');
 ```
 
 ## Available Methods exposed by the SDK
+
+### Wallets API
+
+Wallets API operations
+
+#### Create Wallet
+
+```ts
+// import the wallet interfaces from the sdk
+import type { IWallet, IWalletResponse } from 'bloc-nodejs';
+
+const payload: IWallet = {
+  // payload to create wallet
+}
+
+const response = await bloc.createWallet(payload)
+console.log(response) // IWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createwallet)
+
+#### Get Wallets
+
+```ts
+// import the wallet interfaces from the sdk
+import type { IGetWalletResponse } from 'bloc-nodejs';
+
+const response = await bloc.getWallets()
+console.log(response) // IGetWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getwallets)
+
+#### Get Wallet By ID
+
+```ts
+// import the wallet interfaces from the sdk
+import type { IWalletResponse } from 'bloc-nodejs';
+
+const response = await bloc.getWalletById('wallet-id')
+console.log(response) // IWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getwalletbyid)
+
+#### Get Customer Wallets
+
+```ts
+// import the wallet interfaces from the sdk
+import type { IGetCustomerWalletResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCustomerWallets('customer-id')
+console.log(response) // IGetCustomerWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcustomerwallets)
+
+#### Debit Wallet
+
+```ts
+// import the wallet interfaces from the sdk
+import type { IDebitWallet, IGetCustomerWalletResponse } from 'bloc-nodejs';
+
+const payload: IDebitWallet = {
+  // payload to debit wallet
+}
+
+const response = await bloc.debitWallet(payload)
+console.log(response) // IGetCustomerWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitwallet)
 
 ### Checkout API
 
