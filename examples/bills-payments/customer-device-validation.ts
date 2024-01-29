@@ -2,13 +2,13 @@ import { Bloc, ICreateCheckout } from '../../dist'
 
 const bloc = new Bloc('secret-keyasfasfbahfb', 'public-key')
 
-const getOperatorProducts = async () => {
+const customerDeviceValidation = async () => {
   try {
-    const products = await bloc.getOperatorProducts('operator-id')
-    console.log(products)
+    const response = await bloc.customerDeviceValidation('operator-id')
+    console.log(response)
   } catch (error) {
     console.error(error)
   }
 }
 
-getOperatorProducts()
+customerDeviceValidation()
