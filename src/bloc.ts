@@ -11,6 +11,7 @@ import {
   Disputes,
   Transfers,
   PaymentLinks,
+  Accounts,
 } from './services'
 
 export class Bloc {
@@ -26,6 +27,7 @@ export class Bloc {
   private disputes: Disputes
   private transfers: Transfers
   private paymentLinks: PaymentLinks
+  private accounts: Accounts
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -40,6 +42,7 @@ export class Bloc {
     this.disputes = new Disputes(secretKey, publicKey)
     this.transfers = new Transfers(secretKey, publicKey)
     this.paymentLinks = new PaymentLinks(secretKey, publicKey)
+    this.accounts = new Accounts(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -182,5 +185,41 @@ export class Bloc {
   }
   public get deletePaymentLink() {
     return this.paymentLinks.deletePaymentLink.bind(this.paymentLinks)
+  }
+  public get createFixedAccount() {
+    return this.accounts.createFixedAccount.bind(this.accounts)
+  }
+  public get createCollectionAccount() {
+    return this.accounts.createCollectionAccount.bind(this.accounts)
+  }
+  public get getAccounts() {
+    return this.accounts.getAccounts.bind(this.accounts)
+  }
+  public get getAccountById() {
+    return this.accounts.getAccountById.bind(this.accounts)
+  }
+  public get getCollectionAccount() {
+    return this.accounts.getCollectionAccount.bind(this.accounts)
+  }
+  public get getAccountByAccountNumber() {
+    return this.accounts.getAccountByAccountNumber.bind(this.accounts)
+  }
+  public get getCustomerAccounts() {
+    return this.accounts.getCustomerAccounts.bind(this.accounts)
+  }
+  public get getOrganisationDefaultAccounts() {
+    return this.accounts.getOrganisationDefaultAccounts.bind(this.accounts)
+  }
+  public get freezeAccount() {
+    return this.accounts.freezeAccount.bind(this.accounts)
+  }
+  public get unfreezeAccount() {
+    return this.accounts.unfreezeAccount.bind(this.accounts)
+  }
+  public get closeAccount() {
+    return this.accounts.closeAccount.bind(this.accounts)
+  }
+  public get reopenAccount() {
+    return this.accounts.reopenAccount.bind(this.accounts)
   }
 }
