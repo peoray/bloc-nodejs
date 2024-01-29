@@ -4,6 +4,7 @@ import {
   ICreateCardDisputeRequest,
   IGetCardDisputeReasonsResponse,
   IGetCardDisputesResponse,
+  IUpdateCardDisputeRequest,
 } from '../types'
 
 /**
@@ -39,5 +40,12 @@ export class Disputes extends HTTPCore {
     disputeID: string
   ): Promise<ICardDisputeResponse> {
     return this.get<ICardDisputeResponse>(`/cards/dispute/${disputeID}`)
+  }
+
+  public async updateCardDispute(
+    disputeID: string,
+    data: IUpdateCardDisputeRequest
+  ): Promise<ICardDisputeResponse> {
+    return this.put<ICardDisputeResponse>(`/cards/dispute/${disputeID}`, data)
   }
 }

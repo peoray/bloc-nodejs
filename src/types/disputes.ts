@@ -44,3 +44,11 @@ export interface IGetCardDisputesResponse {
   data: ICardDispute[]
   message: string
 }
+
+export interface IUpdateCardDisputeRequest {
+  reason: string
+  explanation: string
+  meta_data: {
+    payment: string
+  }
+}
