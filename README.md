@@ -13,7 +13,7 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
 - [Available Methods exposed by the SDK](#available-methods-exposed-by-the-sdk)
   - [Wallets API](#wallets-api)
     - [Create Wallet](#create-wallet)
-    - [Get Wallets](#get-wallet)
+    - [Get Wallets](#get-wallets)
     - [Get Wallet by id](#get-wallet-by-id)
     - [Get Customer Wallets](#get-customer-wallets)
     - [Debit Wallet](#debit-wallet)
@@ -51,7 +51,7 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Transactions API](#transactions-api)
     - [Get All Transactions](#get-all-transactions)
     - [Get Transaction by Reference](#get-transaction-by-reference)
-  - [Transfers API](#transfer-api)
+  - [Transfers API](#transfers-api)
     - [Transfer From A Fixed Account](#transfer-from-a-fixed-account)
     - [Transfer From Organization Balance](#transfer-from-organization-balance)
     - [Internal transfer](#internal-transfer)
@@ -59,6 +59,12 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Webhook API](#webhook-api)
     - [Set Webhook](#set-webhook)
     - [Get Webhook](#get-webhook)
+  - [Payment Links API](#payment-links-api)
+    - [Create Payment Link](#create-payment-link)
+    - [Get Payment Links](#get-payment-links)
+    - [Get Payment Link By id](#get-payment-link-by-id)
+    - [Edit Payment Link](#edit-payment-link)
+    - [Delete Payment Link](#delete-payment-link)
   - [Beneficiaries API](#beneficiaries-api)
     - [Create Beneficiary](#create-beneficiary)
     - [Get Beneficiary by ID](#get-beneficiary-by-id)
@@ -676,6 +682,82 @@ console.log(response) // IWebhookResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getwebhook)
+
+### Payment Links API
+
+Payment Link API operations
+
+#### Create Payment Link
+
+```ts
+// import the payment-links interfaces from the sdk
+import type { ICreatePaymentLinkRequest, IPaymentLinkResponse } from 'bloc-nodejs';
+
+const payload: ICreatePaymentLinkRequest = {
+  // payload data  
+}
+
+const response = await bloc.createPaymentLink(payload)
+console.log(response) // IPaymentLinkResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createpaymentlink)
+
+#### Get Payment Links
+
+```ts
+// import the payment-links interfaces from the sdk
+import type { IGetPaymentLinksResponse } from 'bloc-nodejs';
+
+const response = await bloc.getPaymentLinks()
+console.log(response) // IGetPaymentLinksResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getpaymentlinks)
+
+#### Get Payment Link By id
+
+```ts
+// import the payment-links interfaces from the sdk
+import type { IPaymentLinkResponse } from 'bloc-nodejs';
+
+const response = await bloc.getPaymentLinkById('link-id')
+console.log(response) // IPaymentLinkResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getpaymentlinkbyid)
+
+#### Edit Payment Link
+
+```ts
+// import the payment-links interfaces from the sdk
+import type { IEditPaymentLinkRequest, IPaymentLinkResponse } from 'bloc-nodejs';
+
+const payload: IEditPaymentLinkRequest = {
+  // payload data  
+}
+
+const response = await bloc.editPaymentLink('link-id', payload)
+console.log(response) // IPaymentLinkResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/editpaymentlink)
+
+#### Delete Payment Link
+
+```ts
+// import the payment-links interfaces from the sdk
+import type { IDeletePaymentLinksRequest, IPaymentLinkResponse } from 'bloc-nodejs';
+
+const payload: IDeletePaymentLinksRequest = {
+  // payload data  
+}
+
+const response = await bloc.deletePaymentLink(payload)
+console.log(response) // IPaymentLinkResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/deletepaymentlink)
 
 ### Beneficiaries API
 
