@@ -1,5 +1,9 @@
 import { HTTPCore } from '../api'
-import { ISupportedBillsResponse } from '../types'
+import {
+  IQueryParams,
+  ISupportedBillsResponse,
+  ISupportedOperatorsResponse,
+} from '../types'
 
 /**
  * Class representing operations related to BillsPayments, extending HTTPCore.
@@ -16,5 +20,11 @@ export class BillsPayments extends HTTPCore {
 
   public async getSupportedBills(): Promise<ISupportedBillsResponse> {
     return this.get<ISupportedBillsResponse>(`/bills/supported`)
+  }
+
+  public async getSupportedOperators(
+    params?: IQueryParams
+  ): Promise<ISupportedOperatorsResponse> {
+    return this.get<ISupportedOperatorsResponse>(`/bills/operators`, { params })
   }
 }
