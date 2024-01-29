@@ -38,4 +38,8 @@ export class Accounts extends HTTPCore {
   public async getAccounts(): Promise<IGetAccountsResponse> {
     return this.get<IGetAccountsResponse>(`/accounts`)
   }
+
+  public async getAccountById(accountID: string): Promise<IAccountResponse> {
+    return this.get<IAccountResponse>(`/accounts/${accountID}`)
+  }
 }
