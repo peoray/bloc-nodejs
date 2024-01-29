@@ -1,4 +1,4 @@
-import { Bloc, ICreateCollectionAccountRequest } from '../../dist'
+import { Bloc } from '../../dist'
 
 const bloc = new Bloc('secret-keyasfasfbahfb', 'public-key')
 
