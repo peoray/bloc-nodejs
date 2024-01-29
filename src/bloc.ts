@@ -168,6 +168,9 @@ export class Bloc {
   public get bulkTransfer() {
     return this.transfers.bulkTransfer.bind(this.transfers)
   }
+  public get createPaymentLink() {
+    return this.paymentLinks.createPaymentLink.bind(this.paymentLinks)
+  }
   public get getPaymentLinks() {
     return this.paymentLinks.getPaymentLinks.bind(this.paymentLinks)
   }
