@@ -1,6 +1,9 @@
 import { HTTPCore } from '../api'
-import { IGetPaymentLinksResponse } from '../types'
-import { ICreatePaymentLinkRequest, ICreatePaymentLinkResponse } from '../types'
+import {
+  ICreatePaymentLinkRequest,
+  IPaymentLinkResponse,
+  IGetPaymentLinksResponse,
+} from '../types'
 
 /**
  * Class representing operations related to PaymentLinks, extending HTTPCore.
@@ -17,11 +20,17 @@ export class PaymentLinks extends HTTPCore {
 
   public async createPaymentLink(
     data: ICreatePaymentLinkRequest
-  ): Promise<ICreatePaymentLinkResponse> {
-    return this.post<ICreatePaymentLinkResponse>(`/paymentlinks`, data)
+  ): Promise<IPaymentLinkResponse> {
+    return this.post<IPaymentLinkResponse>(`/paymentlinks`, data)
   }
 
   public async getPaymentLinks(): Promise<IGetPaymentLinksResponse> {
     return this.get<IGetPaymentLinksResponse>(`/paymentlinks`)
+  }
+
+  public async getPaymentLinkById(
+    linkId: string
+  ): Promise<IPaymentLinkResponse> {
+    return this.get<IPaymentLinkResponse>(`/paymentlinks/${linkId}`)
   }
 }

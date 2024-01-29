@@ -21,7 +21,7 @@ export interface ICreatePaymentLinkRequest {
   currency: string
 }
 
-export interface ICreatePaymentLinkResponse {
+export interface IPaymentLinkResponse {
   success: boolean
   data: IPaymentLink
   message: string
