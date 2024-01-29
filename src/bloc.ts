@@ -9,6 +9,7 @@ import {
   Wallet,
   BillsPayments,
   Disputes,
+  Transfers,
 } from './services'
 
 export class Bloc {
@@ -22,6 +23,7 @@ export class Bloc {
   private wallet: Wallet
   private billsPayments: BillsPayments
   private disputes: Disputes
+  private transfers: Transfers
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -34,6 +36,7 @@ export class Bloc {
     this.wallet = new Wallet(secretKey, publicKey)
     this.billsPayments = new BillsPayments(secretKey, publicKey)
     this.disputes = new Disputes(secretKey, publicKey)
+    this.transfers = new Transfers(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -148,6 +151,18 @@ export class Bloc {
     return this.disputes.getCardDisputeById.bind(this.disputes)
   }
   public get updateCardDispute() {
-    return this.disputes.getCardDisputeReasons.bind(this.disputes)
+    return this.disputes.updateCardDispute.bind(this.disputes)
+  }
+  public get transferFromAFixedAccount() {
+    return this.transfers.transferFromAFixedAccount.bind(this.transfers)
+  }
+  public get transferFromOrganizationBalance() {
+    return this.transfers.transferFromOrganizationBalance.bind(this.transfers)
+  }
+  public get internalTransfer() {
+    return this.transfers.internalTransfer.bind(this.transfers)
+  }
+  public get bulkTransfer() {
+    return this.transfers.bulkTransfer.bind(this.transfers)
   }
 }
