@@ -22,7 +22,13 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
     - [Get Supported Operators](#get-supported-operators)
     - [Get Operator Products](#get-operator-products)
     - [Customer Device Validation](#customer-device-validation)
-    - [Make Payment](#make-payment`)
+    - [Make Payment](#make-payment)
+  - [Disputes API](#bills-payments-api)
+    - [Get Card Dispute Reasons](#get-card-dispute-reasons)
+    - [Create Card Dispute](#create-card-dispute)
+    - [Get Card Disputes](#get-card-disputes)
+    - [Get Card Dispute](#get-card-dispute)
+    - [Update Card Dispute](#update-card-dispute)
   - [Checkout API](#checkout-api)
     - [Create Checkout](#create-checkout)
   - [Customers API](#customers-api)
@@ -228,7 +234,7 @@ Find more details about the parameters and response for the above method [here](
 import type { IMakePaymentResponse, IMakePaymentResponse } from 'bloc-nodejs';
 
 const payload: IMakePaymentResponse = {
-  // payload to debit wallet
+  // payload to make payment
 }
 
 const response = await bloc.makePayment(payload)
@@ -236,6 +242,78 @@ console.log(response) // IMakePaymentResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitwallet)
+
+### Disputes API
+
+Disputes API operations
+
+#### Get Card Dispute Reasons
+
+```ts
+// import the disputes interfaces from the sdk
+import type { IGetCardDisputeReasonsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCardDisputeReasons()
+console.log(response) // IGetCardDisputeReasonsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcarddisputereasons)
+
+#### Create Card Dispute
+
+```ts
+// import the disputes interfaces from the sdk
+import type { ICreateCardDisputeRequest, ICardDisputeResponse } from 'bloc-nodejs';
+
+const payload: ICreateCardDisputeRequest = {
+  // payload to create card dispute
+}
+
+const response = await bloc.createCardDispute(payload)
+console.log(response) // ICardDisputeResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/createcarddispute)
+
+#### Get Card Disputes
+
+```ts
+// import the disputes interfaces from the sdk
+import type { IGetCardDisputesResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCardDisputes()
+console.log(response) // IGetCardDisputesResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcarddisputes)
+
+#### Get Card Dispute
+
+```ts
+// import the disputes interfaces from the sdk
+import type { ICardDisputeResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCardDisputeById('dispute-id')
+console.log(response) // ICardDisputeResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcarddispute)
+
+#### Update Card Dispute
+
+```ts
+// import the disputes interfaces from the sdk
+import type { IUpdateCardDisputeRequest, ICardDisputeResponse } from 'bloc-nodejs';
+
+const payload: IUpdateCardDisputeRequest = {
+  // payload to update card dispute
+}
+
+const response = await bloc.updateCardDispute('dispute-id', payload)
+console.log(response) // ICardDisputeResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/updatecarddispute)
 
 ### Checkout API
 
