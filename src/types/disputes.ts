@@ -33,7 +33,7 @@ interface ICardDispute {
   }
 }
 
-export interface ICreateCardDisputeResponse {
+export interface ICardDisputeResponse {
   success: boolean
   data: ICardDispute
   message: string
