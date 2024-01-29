@@ -48,5 +48,5 @@ export interface IGetCustomerWalletResponse {
 
 export interface IDebitWallet {
   wallet_id: string
-  amount: string
+  amount: number
 }
