@@ -28,3 +28,14 @@ export interface IOperatorProductsResponse {
   }[]
   message: string
 }
+
+export interface ICustomerDeviceValidationResponse {
+  success: boolean
+  data: {
+    address: string
+    email: string
+    name: string
+    phone: string
+  }
+  message: string
+}

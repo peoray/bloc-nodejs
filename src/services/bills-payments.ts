@@ -1,5 +1,6 @@
 import { HTTPCore } from '../api'
 import {
+  ICustomerDeviceValidationResponse,
   IOperatorProductsResponse,
   IQueryParams,
   ISupportedBillsResponse,
@@ -35,6 +36,16 @@ export class BillsPayments extends HTTPCore {
   ): Promise<IOperatorProductsResponse> {
     return this.get<IOperatorProductsResponse>(
       `/bills/operators/${operatorID}/products`,
+      { params }
+    )
+  }
+
+  public async customerDeviceValidation(
+    operatorID: string,
+    params?: IQueryParams
+  ): Promise<ICustomerDeviceValidationResponse> {
+    return this.get<ICustomerDeviceValidationResponse>(
+      `/bills/customer/validate/${operatorID}`,
       { params }
     )
   }
