@@ -1,6 +1,8 @@
 import { HTTPCore } from '../api'
 import {
   ICustomerDeviceValidationResponse,
+  IMakePaymentRequest,
+  IMakePaymentResponse,
   IOperatorProductsResponse,
   IQueryParams,
   ISupportedBillsResponse,
@@ -48,5 +50,12 @@ export class BillsPayments extends HTTPCore {
       `/bills/customer/validate/${operatorID}`,
       { params }
     )
+  }
+
+  public async makePayment(
+    data: IMakePaymentRequest,
+    params?: IQueryParams
+  ): Promise<IMakePaymentResponse> {
+    return this.post<IMakePaymentResponse>(`/bills/payment`, data, { params })
   }
 }
