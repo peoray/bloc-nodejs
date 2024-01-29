@@ -102,4 +102,14 @@ export class Accounts extends HTTPCore {
       data
     )
   }
+
+  public async reopenAccount(
+    accountID: string,
+    data: IUpdateAccountRequest
+  ): Promise<IUpdateAccountResponse> {
+    return this.put<IUpdateAccountResponse>(
+      `/accounts/${accountID}/reopen`,
+      data
+    )
+  }
 }
