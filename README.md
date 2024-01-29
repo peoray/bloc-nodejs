@@ -51,6 +51,11 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
   - [Transactions API](#transactions-api)
     - [Get All Transactions](#get-all-transactions)
     - [Get Transaction by Reference](#get-transaction-by-reference)
+  - [Transfers API](#transfer-api)
+    - [Transfer From A Fixed Account](#transfer-from-a-fixed-account)
+    - [Transfer From Organization Balance](#transfer-from-organization-balance)
+    - [Internal transfer](#internal-transfer)
+    - [Bulk transfer](#bulk-transfer)
   - [Webhook API](#webhook-api)
     - [Set Webhook](#set-webhook)
     - [Get Webhook](#get-webhook)
@@ -570,6 +575,75 @@ console.log(response) // ITransactionByReferenceResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getalltransactions)
+
+
+### Transfers API
+
+Transfers API operations
+
+#### Transfer From A Fixed Account
+
+```ts
+// import the transfers interfaces from the sdk
+import type { ITransferFromAFixedAccountRequest, ITransferResponse } from 'bloc-nodejs';
+
+const payload: ITransferFromAFixedAccountRequest = {
+  // payload data  
+}
+
+const response = await bloc.transferFromAFixedAccount(payload)
+console.log(response) // ITransferResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/transferfromafixedaccount)
+
+#### Transfer From Organization Balance
+
+```ts
+// import the transfers interfaces from the sdk
+import type { ITransferFromOrganizationBalance, ITransferResponse } from 'bloc-nodejs';
+
+const payload: ITransferFromOrganizationBalance = {
+  // payload data  
+}
+
+const response = await bloc.transferFromOrganizationBalance(payload)
+console.log(response) // ITransferResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/transferfromorganizationbalance)
+
+#### Internal Transfer
+
+```ts
+// import the transfers interfaces from the sdk
+import type { IInternalTransferRequest, ITransferResponse } from 'bloc-nodejs';
+
+const payload: IInternalTransferRequest = {
+  // payload data  
+}
+
+const response = await bloc.internalTransfer(payload)
+console.log(response) // ITransferResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/internaltransfer)
+
+#### Bulk Transfer
+
+```ts
+// import the transfers interfaces from the sdk
+import type { IBulkTransferRequest, ITransferResponse } from 'bloc-nodejs';
+
+const payload: IBulkTransferRequest = {
+  // payload data  
+}
+
+const response = await bloc.bulkTransfer(payload)
+console.log(response) // ITransferResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/bulktransfer)
 
 ### Webhook API
 
