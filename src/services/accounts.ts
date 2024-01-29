@@ -70,8 +70,8 @@ export class Accounts extends HTTPCore {
    * Retrieves a collection account.
    * @returns {Promise<IGetCollectionAccountResponse>} A promise that resolves to the collection account response.
    */
-  public async getCollectionAccount(): Promise<IGetCollectionAccountResponse> {
-    return this.get<IGetCollectionAccountResponse>(`/accounts/collections`)
+  public async getCollectionAccount(): Promise<IAccountResponse> {
+    return this.get<IAccountResponse>(`/accounts/collections`)
   }
 
   /**
