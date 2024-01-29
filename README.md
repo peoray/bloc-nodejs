@@ -17,6 +17,12 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
     - [Get Wallet by id](#get-wallet-by-id)
     - [Get Customer Wallets](#get-customer-wallets)
     - [Debit Wallet](#debit-wallet)
+  - [Bills Payments API](#bills-payments-api)
+    - [Get Supported Bills](#get-supported-bills)
+    - [Get Supported Operators](#get-supported-operators)
+    - [Get Operator Products](#get-operator-products)
+    - [Customer Device Validation](#customer-device-validation)
+    - [Make Payment](#make-payment`)
   - [Checkout API](#checkout-api)
     - [Create Checkout](#create-checkout)
   - [Customers API](#customers-api)
@@ -159,6 +165,74 @@ const payload: IDebitWallet = {
 
 const response = await bloc.debitWallet(payload)
 console.log(response) // IGetCustomerWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitwallet)
+
+### Bills Payments API
+
+Bills Payments API operations
+
+#### Get Supported Bills
+
+```ts
+// import the bills-payments interfaces from the sdk
+import type { ISupportedBillsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getSupportedBills()
+console.log(response) // ISupportedBillsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getsupportedbills)
+
+#### Get Supported Operators
+
+```ts
+// import the bills-payments interfaces from the sdk
+import type { ISupportedOperatorsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getSupportedOperators()
+console.log(response) // ISupportedOperatorsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getsupportedoperators)
+
+#### Get Operator Products
+
+```ts
+// import the bills-payments interfaces from the sdk
+import type { IOperatorProductsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getOperatorProducts('operator-id')
+console.log(response) // IOperatorProductsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getoperatorproducts)
+
+#### Customer Device Validation
+
+```ts
+// import the bills-payments interfaces from the sdk
+import type { IGetCustomerWalletResponse } from 'bloc-nodejs';
+
+const response = await bloc.customerDeviceValidation('operator-id')
+console.log(response) // IGetCustomerWalletResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/customerdevicevalidation)
+
+#### Make Payment
+
+```ts
+// import the bills-payment interfaces from the sdk
+import type { IMakePaymentResponse, IMakePaymentResponse } from 'bloc-nodejs';
+
+const payload: IMakePaymentResponse = {
+  // payload to debit wallet
+}
+
+const response = await bloc.makePayment(payload)
+console.log(response) // IMakePaymentResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/debitwallet)
