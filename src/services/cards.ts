@@ -48,4 +48,8 @@ export class Cards extends HTTPCore {
   ): Promise<ICardResponse> {
     return this.put<ICardResponse>(`/cards/change-pin/${cardID}`, data)
   }
+
+  public async freezeCard(cardID: string): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/freeze/${cardID}`)
+  }
 }
