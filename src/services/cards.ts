@@ -71,4 +71,10 @@ export class Cards extends HTTPCore {
   ): Promise<ICardResponse> {
     return this.put<ICardResponse>(`/cards/fixed-account/link`, data)
   }
+
+  public async unlinkCardwithFixedAccount(
+    cardID: string
+  ): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/fixed-account/unlink/${cardID}`)
+  }
 }
