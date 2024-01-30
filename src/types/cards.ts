@@ -47,3 +47,10 @@ export interface IGetCardsResponse {
   data: ICardExtended[]
   message: string
 }
+
+export interface ICardSecureDataResponse extends ICard {}
+
+export interface IChangeCardPinRequest {
+  old_pin: string
+  new_pin: string
+}

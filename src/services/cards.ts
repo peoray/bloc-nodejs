@@ -1,5 +1,11 @@
 import { HTTPCore } from '../api'
-import { IGetCardsResponse, IIssueCardRequest, ICardResponse } from '../types'
+import {
+  IGetCardsResponse,
+  IIssueCardRequest,
+  ICardResponse,
+  ICardSecureDataResponse,
+  IChangeCardPinRequest,
+} from '../types'
 
 /**
  * Class representing operations related to Cards, extending HTTPCore.
@@ -30,7 +36,16 @@ export class Cards extends HTTPCore {
     return this.get<ICardResponse>(`/cards/customer/${customerID}`)
   }
 
-  public async getCardSecureData(cardID: string): Promise<ICardResponse> {
-    return this.get<ICardResponse>(`/cards/secure-data/${cardID}`)
+  public async getCardSecureData(
+    cardID: string
+  ): Promise<ICardSecureDataResponse> {
+    return this.get<ICardSecureDataResponse>(`/cards/secure-data/${cardID}`)
+  }
+
+  public async changeCardPIN(
+    cardID: string,
+    data: IChangeCardPinRequest
+  ): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/change-pin/${cardID}`, data)
   }
 }
