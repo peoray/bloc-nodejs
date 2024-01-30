@@ -1,5 +1,9 @@
 import { HTTPCore } from '../api'
-import { IIssueCardRequest, IIssueCardResponse } from '../types'
+import {
+  IGetCardsResponse,
+  IIssueCardRequest,
+  IIssueCardResponse,
+} from '../types'
 
 /**
  * Class representing operations related to Cards, extending HTTPCore.
@@ -16,5 +20,9 @@ export class Cards extends HTTPCore {
 
   public async issueCard(data: IIssueCardRequest): Promise<IIssueCardResponse> {
     return this.post<IIssueCardResponse>(`/cards`, data)
+  }
+
+  public async getCards(): Promise<IGetCardsResponse> {
+    return this.get<IGetCardsResponse>(`/cards`)
   }
 }
