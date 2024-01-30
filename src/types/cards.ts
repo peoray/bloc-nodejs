@@ -1,16 +1,7 @@
 interface ICard {
   id: string
-  customer_id: string
-  account_id: string
-  organization_id: string
-  environment: string
   type: string
   name: string
-  phone: string
-  currency: string
-  balance: number
-  brand: string
-  status: string
   billing_address: {
     street: string
     city: string
@@ -18,9 +9,23 @@ interface ICard {
     country: string
     postal_code: string
   }
+  brand: string
+  currency: string
   pan: string
   expiry_month: string
   expiry_year: string
+  cvv: string
+  pin: string
+  status: string
+  balance: number
+}
+
+interface ICardExtended extends ICard {
+  customer_id: string
+  account_id: string
+  organization_id: string
+  environment: string
+  phone: string
   created_at: string
   updated_at: string
   linked: boolean
@@ -33,12 +38,12 @@ export interface IIssueCardRequest {
 
 export interface ICardResponse {
   success: boolean
-  data: ICard
+  data: ICardExtended
   message: string
 }
 
 export interface IGetCardsResponse {
   success: boolean
-  data: ICard[]
+  data: ICardExtended[]
   message: string
 }

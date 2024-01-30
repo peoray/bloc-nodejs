@@ -29,4 +29,8 @@ export class Cards extends HTTPCore {
   public async getCustomerCards(customerID: string): Promise<ICardResponse> {
     return this.get<ICardResponse>(`/cards/customer/${customerID}`)
   }
+
+  public async getCardSecureData(cardID: string): Promise<ICardResponse> {
+    return this.get<ICardResponse>(`/cards/secure-data/${cardID}`)
+  }
 }
