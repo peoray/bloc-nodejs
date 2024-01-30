@@ -2,13 +2,13 @@ import { Bloc } from '../../dist'
 
 const bloc = new Bloc('secret-keyasfasfbahfb', 'public-key')
 
-const getCardById = async () => {
+const getCardSecureData = async () => {
   try {
-    const card = await bloc.getCardById('card-id')
+    const card = await bloc.getCardSecureData('card-id')
     console.log(card)
   } catch (error) {
     console.error(error)
   }
 }
 
-getCardById()
+getCardSecureData()
