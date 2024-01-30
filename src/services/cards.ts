@@ -55,8 +55,10 @@ export class Cards extends HTTPCore {
    * @param {string} customerID - The ID of the customer to retrieve cards for.
    * @returns {Promise<ICardResponse>} A promise that resolves to the list of cards associated with the customer.
    */
-  public async getCustomerCards(customerID: string): Promise<ICardResponse> {
-    return this.get<ICardResponse>(`/cards/customer/${customerID}`)
+  public async getCustomerCards(
+    customerID: string
+  ): Promise<IGetCardsResponse> {
+    return this.get<IGetCardsResponse>(`/cards/customer/${customerID}`)
   }
 
   /**
