@@ -70,3 +70,9 @@ export interface IFundCardRequest {
   from_account_id: string
   currency: string
 }
+
+export interface IWithdrawFromCardRequest {
+  amount: number
+  to_account_id: string
+  currency: string
+}

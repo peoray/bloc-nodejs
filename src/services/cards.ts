@@ -8,6 +8,7 @@ import {
   IBlockCardRequest,
   ILinkCardwithFixedAccountRequest,
   IFundCardRequest,
+  IWithdrawFromCardRequest,
 } from '../types'
 
 /**
@@ -84,5 +85,12 @@ export class Cards extends HTTPCore {
     data: IFundCardRequest
   ): Promise<ICardResponse> {
     return this.post<ICardResponse>(`/cards/fund/${cardID}`, data)
+  }
+
+  public async withdrawFromCard(
+    cardID: string,
+    data: IWithdrawFromCardRequest
+  ): Promise<ICardResponse> {
+    return this.post<ICardResponse>(`/cards/withdraw/${cardID}`, data)
   }
 }
