@@ -36,12 +36,26 @@ A Nodejs API wrapper for [Bloc](https://www.blochq.io/) banking services written
     - [Get Operator Products](#get-operator-products)
     - [Customer Device Validation](#customer-device-validation)
     - [Make Payment](#make-payment)
-  - [Disputes API](#bills-payments-api)
+  - [Disputes API](#disputes-api)
     - [Get Card Dispute Reasons](#get-card-dispute-reasons)
     - [Create Card Dispute](#create-card-dispute)
     - [Get Card Disputes](#get-card-disputes)
     - [Get Card Dispute](#get-card-dispute)
     - [Update Card Dispute](#update-card-dispute)
+  - [Cards API](#cards-api)
+    - [Issue Card](#issue-card)
+    - [Get Cards](#get-cards)
+    - [Get Card By ID](#get-card-by-id)
+    - [Get Customer Cards](#get-customer-cards)
+    - [Get Card Secure Data](#get-card-secure-data)
+    - [Change Card PIN](#change-card-pin)
+    - [Freeze Card](#freeze-card)
+    - [Unfreeze Card](#unfreeze-card)
+    - [Block Card](#block-card)
+    - [Link Card with Fixed Account](#link-card-with-fixed-account)
+    - [Unlink Card From Fixed Account](#unlink-card-from-fixed-account)
+    - [Fund Card](#fund-card)
+    - [Withdraw From Card](#withdraw-from-card)
   - [Checkout API](#checkout-api)
     - [Create Checkout](#create-checkout)
   - [Customers API](#customers-api)
@@ -191,10 +205,10 @@ Find more details about the parameters and response for the above method [here](
 
 ```ts
 // import the accounts interfaces from the sdk
-import type { IAccountResponse } from 'bloc-nodejs';
+import type { IGetCollectionAccountResponse } from 'bloc-nodejs';
 
 const response = await bloc.getCollectionAccount()
-console.log(response) // IAccountResponse
+console.log(response) // IGetCollectionAccountResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcollectionaccount)
@@ -510,6 +524,190 @@ console.log(response) // ICardDisputeResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/updatecarddispute)
+
+### Cards API
+
+Cards API operations
+
+#### Issue Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { IIssueCardRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: IIssueCardRequest = {
+  // payload to issue card
+}
+
+const response = await bloc.issueCard(payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/issuecard)
+
+#### Get Cards
+
+```ts
+// import the cards interfaces from the sdk
+import type { IGetCardsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCards()
+console.log(response) // IGetCardsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcards)
+
+#### Get Card by Id
+
+```ts
+// import the cards interfaces from the sdk
+import type { ICardResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCardById('card-id')
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcardbyid)
+
+#### Get Customer Cards
+
+```ts
+// import the cards interfaces from the sdk
+import type { IGetCardsResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCustomerCards('customer-id')
+console.log(response) // IGetCardsResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcustomercards)
+
+#### Get Card Secure Data
+
+```ts
+// import the cards interfaces from the sdk
+import type { ICardSecureDataResponse } from 'bloc-nodejs';
+
+const response = await bloc.getCardSecureData('card-id')
+console.log(response) // ICardSecureDataResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcardsecuredata)
+
+#### Change Card PIN
+
+```ts
+// import the cards interfaces from the sdk
+import type { IChangeCardPinRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: IChangeCardPinRequest = {
+  // payload to change card pin
+}
+
+const response = await bloc.changeCardPIN('card-id', payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/changecardpin)
+
+#### Freeze Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { ICardResponse } from 'bloc-nodejs';
+
+const response = await bloc.freezeCard('card-id')
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/freezecard)
+
+#### Unfreeze Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { ICardResponse } from 'bloc-nodejs';
+
+const response = await bloc.unfreezeCard('card-id')
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/unfreezecard)
+
+#### Block Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { IBlockCardRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: IBlockCardRequest = {
+  // payload to block card
+}
+
+const response = await bloc.blockCard('card-id', payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/blockcard)
+
+#### Link Card with Fixed Account
+
+```ts
+// import the cards interfaces from the sdk
+import type { ILinkCardwithFixedAccountRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: ILinkCardwithFixedAccountRequest = {
+  // payload to link card with fixed account
+}
+
+const response = await bloc.linkCardwithFixedAccount(payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/linkcardwithfixedaccount)
+
+#### Unlink Card From Fixed Account
+
+```ts
+// import the cards interfaces from the sdk
+import type { ICardResponse } from 'bloc-nodejs';
+
+const response = await bloc.unlinkCardwithFixedAccount('card-id')
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/unlinkcardfromfixedaccount)
+
+#### Fund Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { IFundCardRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: IFundCardRequest = {
+  // payload to fund card
+}
+
+const response = await bloc.fundCard('card-id', payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/fundcard)
+
+#### Withdraw From Card
+
+```ts
+// import the cards interfaces from the sdk
+import type { IWithdrawFromCardRequest, ICardResponse } from 'bloc-nodejs';
+
+const payload: IWithdrawFromCardRequest = {
+  // payload to withdraw from card
+}
+
+const response = await bloc.withdrawFromCard('card-id', payload)
+console.log(response) // ICardResponse
+```
+
+Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/withdrawfromcard)
 
 ### Checkout API
 

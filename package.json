@@ -1,6 +1,6 @@
 {
   "name": "bloc-nodejs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nodejs SDK wrapper for Bloc API written with Typescript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
