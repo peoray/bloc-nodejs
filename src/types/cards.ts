@@ -31,7 +31,7 @@ export interface IIssueCardRequest {
   brand: 'Verve' | 'MasterCard'
 }
 
-export interface IIssueCardResponse {
+export interface ICardResponse {
   success: boolean
   data: ICard
   message: string

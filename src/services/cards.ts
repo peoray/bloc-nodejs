@@ -1,9 +1,5 @@
 import { HTTPCore } from '../api'
-import {
-  IGetCardsResponse,
-  IIssueCardRequest,
-  IIssueCardResponse,
-} from '../types'
+import { IGetCardsResponse, IIssueCardRequest, ICardResponse } from '../types'
 
 /**
  * Class representing operations related to Cards, extending HTTPCore.
@@ -18,11 +14,15 @@ export class Cards extends HTTPCore {
     super(secretKey, publicKey)
   }
 
-  public async issueCard(data: IIssueCardRequest): Promise<IIssueCardResponse> {
-    return this.post<IIssueCardResponse>(`/cards`, data)
+  public async issueCard(data: IIssueCardRequest): Promise<ICardResponse> {
+    return this.post<ICardResponse>(`/cards`, data)
   }
 
   public async getCards(): Promise<IGetCardsResponse> {
     return this.get<IGetCardsResponse>(`/cards`)
+  }
+
+  public async getCardById(cardID: string): Promise<ICardResponse> {
+    return this.get<ICardResponse>(`/cards/${cardID}`)
   }
 }
