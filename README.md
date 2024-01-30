@@ -191,10 +191,10 @@ Find more details about the parameters and response for the above method [here](
 
 ```ts
 // import the accounts interfaces from the sdk
-import type { IAccountResponse } from 'bloc-nodejs';
+import type { IGetCollectionAccountResponse } from 'bloc-nodejs';
 
 const response = await bloc.getCollectionAccount()
-console.log(response) // IAccountResponse
+console.log(response) // IGetCollectionAccountResponse
 ```
 
 Find more details about the parameters and response for the above method [here](https://docs.blochq.io/reference/getcollectionaccount)
