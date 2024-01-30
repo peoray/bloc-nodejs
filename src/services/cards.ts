@@ -52,4 +52,8 @@ export class Cards extends HTTPCore {
   public async freezeCard(cardID: string): Promise<ICardResponse> {
     return this.put<ICardResponse>(`/cards/freeze/${cardID}`)
   }
+
+  public async unfreezeCard(cardID: string): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/unfreeze/${cardID}`)
+  }
 }
