@@ -6,6 +6,7 @@ import {
   ICardSecureDataResponse,
   IChangeCardPinRequest,
   IBlockCardRequest,
+  ILinkCardwithFixedAccountRequest,
 } from '../types'
 
 /**
@@ -63,5 +64,11 @@ export class Cards extends HTTPCore {
     data: IBlockCardRequest
   ): Promise<ICardResponse> {
     return this.put<ICardResponse>(`/cards/block/${cardID}`, data)
+  }
+
+  public async linkCardwithFixedAccount(
+    data: ILinkCardwithFixedAccountRequest
+  ): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/fixed-account/link`, data)
   }
 }

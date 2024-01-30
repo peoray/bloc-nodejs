@@ -59,3 +59,8 @@ export interface IBlockCardRequest {
   account_id: string
   reason: string
 }
+
+export interface ILinkCardwithFixedAccountRequest {
+  card_id: string
+  account_id: string
+}
