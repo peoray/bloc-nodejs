@@ -54,3 +54,8 @@ export interface IChangeCardPinRequest {
   old_pin: string
   new_pin: string
 }
+
+export interface IBlockCardRequest {
+  account_id: string
+  reason: string
+}

@@ -5,6 +5,7 @@ import {
   ICardResponse,
   ICardSecureDataResponse,
   IChangeCardPinRequest,
+  IBlockCardRequest,
 } from '../types'
 
 /**
@@ -55,5 +56,12 @@ export class Cards extends HTTPCore {
 
   public async unfreezeCard(cardID: string): Promise<ICardResponse> {
     return this.put<ICardResponse>(`/cards/unfreeze/${cardID}`)
+  }
+
+  public async blockCard(
+    cardID: string,
+    data: IBlockCardRequest
+  ): Promise<ICardResponse> {
+    return this.put<ICardResponse>(`/cards/block/${cardID}`, data)
   }
 }
