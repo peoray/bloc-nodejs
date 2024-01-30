@@ -2,7 +2,7 @@ import { Bloc, IChangeCardPinRequest } from '../../dist'
 
 const bloc = new Bloc('secret-keyasfasfbahfb', 'public-key')
 
-const issueCard = async () => {
+const changeCardPIN = async () => {
   try {
     const data: IChangeCardPinRequest = {
       old_pin: '4639',
@@ -15,4 +15,4 @@ const issueCard = async () => {
   }
 }
 
-issueCard()
+changeCardPIN()
