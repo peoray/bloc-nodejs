@@ -12,6 +12,7 @@ import {
   Transfers,
   PaymentLinks,
   Accounts,
+  Cards,
 } from './services'
 
 export class Bloc {
@@ -28,6 +29,7 @@ export class Bloc {
   private transfers: Transfers
   private paymentLinks: PaymentLinks
   private accounts: Accounts
+  private cards: Cards
 
   constructor(secretKey: string, publicKey: string) {
     this.customer = new Customer(secretKey, publicKey)
@@ -43,6 +45,7 @@ export class Bloc {
     this.transfers = new Transfers(secretKey, publicKey)
     this.paymentLinks = new PaymentLinks(secretKey, publicKey)
     this.accounts = new Accounts(secretKey, publicKey)
+    this.cards = new Cards(secretKey, publicKey)
   }
 
   public get createCustomer() {
@@ -221,5 +224,44 @@ export class Bloc {
   }
   public get reopenAccount() {
     return this.accounts.reopenAccount.bind(this.accounts)
+  }
+  public get issueCard() {
+    return this.cards.issueCard.bind(this.cards)
+  }
+  public get getCards() {
+    return this.cards.getCards.bind(this.cards)
+  }
+  public get getCardById() {
+    return this.cards.getCardById.bind(this.cards)
+  }
+  public get getCustomerCards() {
+    return this.cards.getCustomerCards.bind(this.cards)
+  }
+  public get getCardSecureData() {
+    return this.cards.getCardSecureData.bind(this.cards)
+  }
+  public get changeCardPIN() {
+    return this.cards.changeCardPIN.bind(this.cards)
+  }
+  public get freezeCard() {
+    return this.cards.freezeCard.bind(this.cards)
+  }
+  public get unfreezeCard() {
+    return this.cards.unfreezeCard.bind(this.cards)
+  }
+  public get blockCard() {
+    return this.cards.blockCard.bind(this.cards)
+  }
+  public get linkCardwithFixedAccount() {
+    return this.cards.linkCardwithFixedAccount.bind(this.cards)
+  }
+  public get unlinkCardwithFixedAccount() {
+    return this.cards.unlinkCardwithFixedAccount.bind(this.cards)
+  }
+  public get fundCard() {
+    return this.cards.fundCard.bind(this.cards)
+  }
+  public get withdrawFromCard() {
+    return this.cards.withdrawFromCard.bind(this.cards)
   }
 }
