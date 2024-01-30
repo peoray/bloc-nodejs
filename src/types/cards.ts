@@ -64,3 +64,9 @@ export interface ILinkCardwithFixedAccountRequest {
   card_id: string
   account_id: string
 }
+
+export interface IFundCardRequest {
+  amount: number
+  from_account_id: string
+  currency: string
+}
